@@ -28,11 +28,10 @@
   "module": "dist/esm/index.js",
   "types": "dist/cjs/index.d.ts",
   "scripts": {
-    "build": "del dist && yarn build:babel && yarn build:types",
+    "build": "del dist && yarn build:babel",
     "build:babel": "concurrently \"yarn build:babel:esm\" \"yarn build:babel:cjs\"",
     "build:babel:cjs": "cross-env BABEL_ENV=cjs babel --extensions \".ts,.tsx\" --copy-files src --out-dir dist/cjs --presets=@babel/env",
     "build:babel:esm": "cross-env BABEL_ENV=esm babel --extensions \".ts,.tsx\" --copy-files src --out-dir dist/esm",
-    "build:types": "tsc",
     "lint": "eslint 'src/**/*.ts?(x)'",
     "prettier": "prettier --write 'src/**/*.{ts?(x),css}'"
   },
@@ -50,6 +49,7 @@
     "@types/node": "^18.11.9",
     "@types/react": "^18.0.25",
     "@types/react-dom": "^18.0.9",
+    "@types/react-native": "^0.70.7",
     "@typescript-eslint/eslint-plugin": "^5.44.0",
     "@typescript-eslint/parser": "^5.44.0",
     "babel-plugin-transform-es2015-modules-umd": "^6.24.1",
