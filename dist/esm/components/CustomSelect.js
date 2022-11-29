@@ -46,8 +46,7 @@ export default function CustomSelect(props) {
         label: formatValue(number, unit, humanizeLabels, leadingZero, clockFormat)
       };
     });
-  },
-  [optionsList, leadingZero, humanizeLabels, clockFormat]);
+  }, [optionsList, leadingZero, humanizeLabels, clockFormat]);
   const localeJSON = JSON.stringify(locale);
   const renderTag = useCallback(props => {
     const value = props;
@@ -59,8 +58,7 @@ export default function CustomSelect(props) {
     const testEveryValue = cronValue.match(/^\*\/([0-9]+),?/) || [];
     return React.createElement("div", null, testEveryValue[1] ? `${locale.everyText || DEFAULT_LOCALE_EN.everyText} 
             ${testEveryValue[1]}` : cronValue);
-  },
-  [value, localeJSON, humanizeLabels, leadingZero, clockFormat]);
+  }, [value, localeJSON, humanizeLabels, leadingZero, clockFormat]);
   const simpleClick = useCallback(event => {
     let newValueOption = event.target.value;
     if (newValueOption.length == 0) {
@@ -73,8 +71,7 @@ export default function CustomSelect(props) {
     } else {
       setValue(newValue);
     }
-  },
-  [setValue, value]);
+  }, [setValue, value]);
   const internalClassName = useMemo(() => classNames({
     'react-js-cron-select': true,
     'react-js-cron-custom-select': true,

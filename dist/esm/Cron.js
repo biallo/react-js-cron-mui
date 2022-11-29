@@ -51,14 +51,12 @@ export default function Cron(props) {
   const localeJSON = JSON.stringify(locale);
   useEffect(() => {
     setValuesFromCronString(value, setInternalError, onError, allowEmpty, internalValueRef, true, locale, shortcuts, setMinutes, setHours, setMonthDays, setMonths, setWeekDays, setPeriod);
-  },
-  []);
+  }, []);
   useEffect(() => {
     if (value !== internalValueRef.current) {
       setValuesFromCronString(value, setInternalError, onError, allowEmpty, internalValueRef, false, locale, shortcuts, setMinutes, setHours, setMonthDays, setMonths, setWeekDays, setPeriod);
     }
-  },
-  [value, internalValueRef, localeJSON, allowEmpty, shortcuts]);
+  }, [value, internalValueRef, localeJSON, allowEmpty, shortcuts]);
   useEffect(() => {
     if ((period || minutes || months || monthDays || weekDays || hours || minutes) && !valueCleared && !previousValueCleared) {
       const cron = getCronStringFromValues(period || defaultPeriodRef.current, months, monthDays, weekDays, hours, minutes, humanizeValue);
@@ -69,21 +67,18 @@ export default function Cron(props) {
     } else if (valueCleared) {
       setValueCleared(false);
     }
-  },
-  [period, monthDays, months, weekDays, hours, minutes, humanizeValue, valueCleared]);
+  }, [period, monthDays, months, weekDays, hours, minutes, humanizeValue, valueCleared]);
   const handleClear = useCallback(() => {
     setMonthDays(undefined);
     setMonths(undefined);
     setWeekDays(undefined);
     setHours(undefined);
     setMinutes(undefined);
-
     let newValue = '';
     const newPeriod = period !== 'reboot' && period ? period : defaultPeriodRef.current;
     if (newPeriod !== period) {
       setPeriod(newPeriod);
     }
-
     if (clearButtonAction === 'fill-with-every') {
       const cron = getCronStringFromValues(newPeriod, undefined, undefined, undefined, undefined, undefined);
       newValue = cron;
@@ -98,8 +93,7 @@ export default function Cron(props) {
       onError && onError(undefined);
       setInternalError(false);
     }
-  },
-  [period, setValue, onError, clearButtonAction]);
+  }, [period, setValue, onError, clearButtonAction]);
   const internalClassName = useMemo(() => classNames({
     'react-js-cron': true,
     'react-js-cron-error': error && displayError,
@@ -134,8 +128,7 @@ export default function Cron(props) {
       }, locale.clearButtonText || DEFAULT_LOCALE_EN.clearButtonText);
     }
     return null;
-  },
-  [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
+  }, [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
   const periodForRender = period || defaultPeriodRef.current;
   return React.createElement("div", {
     className: internalClassName

@@ -34,8 +34,7 @@ export default function MonthDays(props) {
       return locale.emptyMonthDays || DEFAULT_LOCALE_EN.emptyMonthDays;
     }
     return locale.emptyMonthDaysShort || DEFAULT_LOCALE_EN.emptyMonthDaysShort;
-  },
-  [noWeekDays, localeJSON]);
+  }, [noWeekDays, localeJSON]);
   const displayMonthDays = !readOnly || value && value.length > 0 || (!value || value.length === 0) && (!weekDays || weekDays.length === 0);
   return displayMonthDays ? React.createElement("div", {
     className: internalClassName

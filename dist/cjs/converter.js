@@ -14,7 +14,6 @@ function setValuesFromCronString(cronString, setInternalError, onError, allowEmp
   onError && onError(undefined);
   setInternalError(false);
   var error = false;
-
   if (!cronString) {
     if (allowEmpty === 'always' || firstRender && allowEmpty === 'for-default-value') {
       return;
@@ -27,7 +26,6 @@ function setValuesFromCronString(cronString, setInternalError, onError, allowEmp
         setPeriod('reboot');
         return;
       }
-
       var shortcutObject = _constants.SUPPORTED_SHORTCUTS.find(function (supportedShortcut) {
         return supportedShortcut.name === cronString;
       });
@@ -54,7 +52,6 @@ function setValuesFromCronString(cronString, setInternalError, onError, allowEmp
     (0, _utils.setError)(onError, locale);
   }
 }
-
 function getCronStringFromValues(period, months, monthDays, weekDays, hours, minutes, humanizeValue) {
   if (period === 'reboot') {
     return '@reboot';
@@ -67,7 +64,6 @@ function getCronStringFromValues(period, months, monthDays, weekDays, hours, min
   var parsedArray = parseCronArray([newMinutes, newHours, newMonthDays, newMonths, newWeekDays], humanizeValue);
   return cronToString(parsedArray);
 }
-
 function partToString(cronPart, unit, humanize, leadingZero, clockFormat) {
   var retval = '';
   if (isFull(cronPart, unit) || cronPart.length === 0) {
@@ -91,7 +87,6 @@ function partToString(cronPart, unit, humanize, leadingZero, clockFormat) {
   }
   return retval;
 }
-
 function formatValue(value, unit, humanize, leadingZero, clockFormat) {
   var cronPartString = value.toString();
   var type = unit.type,
@@ -114,7 +109,6 @@ function formatValue(value, unit, humanize, leadingZero, clockFormat) {
   }
   return cronPartString;
 }
-
 function parseCronArray(cronArr, humanizeValue) {
   if (cronArr.length === 5) {
     return cronArr.map(function (partArr, idx) {
@@ -125,11 +119,9 @@ function parseCronArray(cronArr, humanizeValue) {
   }
   throw new Error('Invalid cron array');
 }
-
 function cronToString(parts) {
   return parts.join(' ');
 }
-
 function getPeriodFromCronparts(cronParts) {
   if (cronParts[3].length > 0) {
     return 'year';
@@ -144,7 +136,6 @@ function getPeriodFromCronparts(cronParts) {
   }
   return 'minute';
 }
-
 function parseCronString(str) {
   if (typeof str !== 'string') {
     throw new Error('Invalid cron string');
@@ -157,7 +148,6 @@ function parseCronString(str) {
   }
   throw new Error('Invalid cron string format');
 }
-
 function parsePartString(str, unit) {
   if (str === '*' || str === '*/1') {
     return [];
@@ -188,7 +178,6 @@ function parsePartString(str, unit) {
   }
   return intervalValues;
 }
-
 function replaceAlternatives(str, min, alt) {
   if (alt) {
     str = str.toUpperCase();
@@ -198,7 +187,6 @@ function replaceAlternatives(str, min, alt) {
   }
   return str;
 }
-
 function fixSunday(values, unit) {
   if (unit.type === 'week-days') {
     values = values.map(function (value) {
@@ -210,7 +198,6 @@ function fixSunday(values, unit) {
   }
   return values;
 }
-
 function parseRange(rangeStr, context, unit) {
   var subparts = rangeStr.split('-');
   if (subparts.length === 1) {
@@ -230,7 +217,6 @@ function parseRange(rangeStr, context, unit) {
     throw new Error("Invalid value \"".concat(rangeStr, "\" for ").concat(unit.type));
   }
 }
-
 function outOfRange(values, unit) {
   var first = values[0];
   var last = values[values.length - 1];
@@ -241,7 +227,6 @@ function outOfRange(values, unit) {
   }
   return;
 }
-
 function parseStep(step, unit) {
   if (typeof step !== 'undefined') {
     var parsedStep = parseInt(step, 10);
@@ -251,7 +236,6 @@ function parseStep(step, unit) {
     return parsedStep;
   }
 }
-
 function applyInterval(values, step) {
   if (step) {
     var minVal = values[0];
@@ -261,7 +245,6 @@ function applyInterval(values, step) {
   }
   return values;
 }
-
 function parsePartArray(arr, unit) {
   var values = (0, _utils.sort)((0, _utils.dedup)(fixSunday(arr, unit)));
   if (values.length === 0) {
@@ -273,11 +256,9 @@ function parsePartArray(arr, unit) {
   }
   return values;
 }
-
 function isFull(values, unit) {
   return values.length === unit.max - unit.min + 1;
 }
-
 function getStep(values) {
   if (values.length > 2) {
     var step = values[1] - values[0];
@@ -286,7 +267,6 @@ function getStep(values) {
     }
   }
 }
-
 function isInterval(values, step) {
   for (var i = 1; i < values.length; i++) {
     var prev = values[i - 1];
@@ -297,7 +277,6 @@ function isInterval(values, step) {
   }
   return true;
 }
-
 function isFullInterval(values, unit, step) {
   var min = getMin(values);
   var max = getMax(values);
@@ -307,15 +286,12 @@ function isFullInterval(values, unit, step) {
   }
   return false;
 }
-
 function getMin(values) {
   return values[0];
 }
-
 function getMax(values) {
   return values[values.length - 1];
 }
-
 function toRanges(values) {
   var retval = [];
   var startPart = null;

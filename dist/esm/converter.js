@@ -4,7 +4,6 @@ export function setValuesFromCronString(cronString, setInternalError, onError, a
   onError && onError(undefined);
   setInternalError(false);
   let error = false;
-
   if (!cronString) {
     if (allowEmpty === 'always' || firstRender && allowEmpty === 'for-default-value') {
       return;
@@ -17,7 +16,6 @@ export function setValuesFromCronString(cronString, setInternalError, onError, a
         setPeriod('reboot');
         return;
       }
-
       const shortcutObject = SUPPORTED_SHORTCUTS.find(supportedShortcut => supportedShortcut.name === cronString);
       if (shortcutObject) {
         cronString = shortcutObject.value;
@@ -42,7 +40,6 @@ export function setValuesFromCronString(cronString, setInternalError, onError, a
     setError(onError, locale);
   }
 }
-
 export function getCronStringFromValues(period, months, monthDays, weekDays, hours, minutes, humanizeValue) {
   if (period === 'reboot') {
     return '@reboot';
@@ -55,7 +52,6 @@ export function getCronStringFromValues(period, months, monthDays, weekDays, hou
   const parsedArray = parseCronArray([newMinutes, newHours, newMonthDays, newMonths, newWeekDays], humanizeValue);
   return cronToString(parsedArray);
 }
-
 export function partToString(cronPart, unit, humanize, leadingZero, clockFormat) {
   let retval = '';
   if (isFull(cronPart, unit) || cronPart.length === 0) {
@@ -79,7 +75,6 @@ export function partToString(cronPart, unit, humanize, leadingZero, clockFormat)
   }
   return retval;
 }
-
 export function formatValue(value, unit, humanize, leadingZero, clockFormat) {
   let cronPartString = value.toString();
   const {
@@ -104,7 +99,6 @@ export function formatValue(value, unit, humanize, leadingZero, clockFormat) {
   }
   return cronPartString;
 }
-
 function parseCronArray(cronArr, humanizeValue) {
   if (cronArr.length === 5) {
     return cronArr.map((partArr, idx) => {
@@ -115,11 +109,9 @@ function parseCronArray(cronArr, humanizeValue) {
   }
   throw new Error('Invalid cron array');
 }
-
 function cronToString(parts) {
   return parts.join(' ');
 }
-
 function getPeriodFromCronparts(cronParts) {
   if (cronParts[3].length > 0) {
     return 'year';
@@ -134,7 +126,6 @@ function getPeriodFromCronparts(cronParts) {
   }
   return 'minute';
 }
-
 function parseCronString(str) {
   if (typeof str !== 'string') {
     throw new Error('Invalid cron string');
@@ -147,7 +138,6 @@ function parseCronString(str) {
   }
   throw new Error('Invalid cron string format');
 }
-
 function parsePartString(str, unit) {
   if (str === '*' || str === '*/1') {
     return [];
@@ -178,7 +168,6 @@ function parsePartString(str, unit) {
   }
   return intervalValues;
 }
-
 function replaceAlternatives(str, min, alt) {
   if (alt) {
     str = str.toUpperCase();
@@ -188,7 +177,6 @@ function replaceAlternatives(str, min, alt) {
   }
   return str;
 }
-
 function fixSunday(values, unit) {
   if (unit.type === 'week-days') {
     values = values.map(function (value) {
@@ -200,7 +188,6 @@ function fixSunday(values, unit) {
   }
   return values;
 }
-
 function parseRange(rangeStr, context, unit) {
   const subparts = rangeStr.split('-');
   if (subparts.length === 1) {
@@ -220,7 +207,6 @@ function parseRange(rangeStr, context, unit) {
     throw new Error(`Invalid value "${rangeStr}" for ${unit.type}`);
   }
 }
-
 function outOfRange(values, unit) {
   const first = values[0];
   const last = values[values.length - 1];
@@ -231,7 +217,6 @@ function outOfRange(values, unit) {
   }
   return;
 }
-
 function parseStep(step, unit) {
   if (typeof step !== 'undefined') {
     const parsedStep = parseInt(step, 10);
@@ -241,7 +226,6 @@ function parseStep(step, unit) {
     return parsedStep;
   }
 }
-
 function applyInterval(values, step) {
   if (step) {
     const minVal = values[0];
@@ -251,7 +235,6 @@ function applyInterval(values, step) {
   }
   return values;
 }
-
 export function parsePartArray(arr, unit) {
   const values = sort(dedup(fixSunday(arr, unit)));
   if (values.length === 0) {
@@ -263,11 +246,9 @@ export function parsePartArray(arr, unit) {
   }
   return values;
 }
-
 function isFull(values, unit) {
   return values.length === unit.max - unit.min + 1;
 }
-
 function getStep(values) {
   if (values.length > 2) {
     const step = values[1] - values[0];
@@ -276,7 +257,6 @@ function getStep(values) {
     }
   }
 }
-
 function isInterval(values, step) {
   for (let i = 1; i < values.length; i++) {
     const prev = values[i - 1];
@@ -287,7 +267,6 @@ function isInterval(values, step) {
   }
   return true;
 }
-
 function isFullInterval(values, unit, step) {
   const min = getMin(values);
   const max = getMax(values);
@@ -297,15 +276,12 @@ function isFullInterval(values, unit, step) {
   }
   return false;
 }
-
 function getMin(values) {
   return values[0];
 }
-
 function getMax(values) {
   return values[values.length - 1];
 }
-
 function toRanges(values) {
   const retval = [];
   let startPart = null;
