@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
-import { Button } from '@mui/material'
+import { Button, FormGroup } from '@mui/material'
 import { CronProps, PeriodType } from './types'
 import Period from './fields/Period'
 import MonthDays from './fields/MonthDays'
@@ -235,7 +235,7 @@ export default function Cron(props: CronProps) {
       if (clearButton && !readOnly) {
         return (
           <Button
-          style={{marginLeft:'10px'}}
+            style={{ marginLeft: '10px' }}
             className={clearButtonClassName}
             variant='contained'
             color='secondary'
@@ -265,20 +265,21 @@ export default function Cron(props: CronProps) {
 
   return (
     <div className={internalClassName}>
-      <Period
-        value={periodForRender}
-        setValue={setPeriod}
-        locale={locale}
-        className={className}
-        disabled={disabled}
-        readOnly={readOnly}
-        shortcuts={shortcuts}
-        {...selectProps}
-      />
+      <FormGroup>
+        <Period
+          value={periodForRender}
+          setValue={setPeriod}
+          locale={locale}
+          className={className}
+          disabled={disabled}
+          readOnly={readOnly}
+          shortcuts={shortcuts}
+          {...selectProps}
+        />
 
-      {periodForRender === 'reboot' ? (
-        clearButtonNode
-      ) : (
+        {periodForRender === 'reboot' ? (
+          clearButtonNode
+        ) : (
           <>
             {periodForRender === 'year' && (
               <Months
@@ -361,6 +362,7 @@ export default function Cron(props: CronProps) {
             </div>
           </>
         )}
+      </FormGroup>
     </div>
   )
 }
