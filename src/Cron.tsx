@@ -44,334 +44,335 @@ export default function Cron(props: CronProps) {
     ...selectProps
   } = props
   const internalValueRef = useRef<string>(value)
-  const defaultPeriodRef = useRef<PeriodType>(defaultPeriod)
-  const [period, setPeriod] = useState<PeriodType | string | undefined>()
-  const [monthDays, setMonthDays] = useState<number[] | undefined>()
-  const [months, setMonths] = useState<number[] | undefined>()
-  const [weekDays, setWeekDays] = useState<number[] | undefined>()
-  const [hours, setHours] = useState<number[] | undefined>()
-  const [minutes, setMinutes] = useState<number[] | undefined>()
-  const [error, setInternalError] = useState<boolean>(false)
-  const [valueCleared, setValueCleared] = useState<boolean>(false)
-  const previousValueCleared = usePrevious(valueCleared)
-  const localeJSON = JSON.stringify(locale)
+  return <h1>A</h1>
+  // const defaultPeriodRef = useRef<PeriodType>(defaultPeriod)
+  // const [period, setPeriod] = useState<PeriodType | string | undefined>()
+  // const [monthDays, setMonthDays] = useState<number[] | undefined>()
+  // const [months, setMonths] = useState<number[] | undefined>()
+  // const [weekDays, setWeekDays] = useState<number[] | undefined>()
+  // const [hours, setHours] = useState<number[] | undefined>()
+  // const [minutes, setMinutes] = useState<number[] | undefined>()
+  // const [error, setInternalError] = useState<boolean>(false)
+  // const [valueCleared, setValueCleared] = useState<boolean>(false)
+  // const previousValueCleared = usePrevious(valueCleared)
+  // const localeJSON = JSON.stringify(locale)
 
-  useEffect(
-    () => {
-      setValuesFromCronString(
-        value,
-        setInternalError,
-        onError,
-        allowEmpty,
-        internalValueRef,
-        true,
-        locale,
-        shortcuts,
-        setMinutes,
-        setHours,
-        setMonthDays,
-        setMonths,
-        setWeekDays,
-        setPeriod
-      )
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    []
-  )
+  // useEffect(
+  //   () => {
+  //     setValuesFromCronString(
+  //       value,
+  //       setInternalError,
+  //       onError,
+  //       allowEmpty,
+  //       internalValueRef,
+  //       true,
+  //       locale,
+  //       shortcuts,
+  //       setMinutes,
+  //       setHours,
+  //       setMonthDays,
+  //       setMonths,
+  //       setWeekDays,
+  //       setPeriod
+  //     )
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   []
+  // )
 
-  useEffect(
-    () => {
-      if (value !== internalValueRef.current) {
-        setValuesFromCronString(
-          value,
-          setInternalError,
-          onError,
-          allowEmpty,
-          internalValueRef,
-          false,
-          locale,
-          shortcuts,
-          setMinutes,
-          setHours,
-          setMonthDays,
-          setMonths,
-          setWeekDays,
-          setPeriod
-        )
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [value, internalValueRef, localeJSON, allowEmpty, shortcuts]
-  )
+  // useEffect(
+  //   () => {
+  //     if (value !== internalValueRef.current) {
+  //       setValuesFromCronString(
+  //         value,
+  //         setInternalError,
+  //         onError,
+  //         allowEmpty,
+  //         internalValueRef,
+  //         false,
+  //         locale,
+  //         shortcuts,
+  //         setMinutes,
+  //         setHours,
+  //         setMonthDays,
+  //         setMonths,
+  //         setWeekDays,
+  //         setPeriod
+  //       )
+  //     }
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [value, internalValueRef, localeJSON, allowEmpty, shortcuts]
+  // )
 
-  useEffect(
-    () => {
-      // Only change the value if a user touched a field
-      // and if the user didn't use the clear button
-      if (
-        (period ||
-          minutes ||
-          months ||
-          monthDays ||
-          weekDays ||
-          hours ||
-          minutes) &&
-        !valueCleared &&
-        !previousValueCleared
-      ) {
-        const cron = getCronStringFromValues(
-          period || defaultPeriodRef.current,
-          months,
-          monthDays,
-          weekDays,
-          hours,
-          minutes,
-          humanizeValue
-        )
+  // useEffect(
+  //   () => {
+  //     // Only change the value if a user touched a field
+  //     // and if the user didn't use the clear button
+  //     if (
+  //       (period ||
+  //         minutes ||
+  //         months ||
+  //         monthDays ||
+  //         weekDays ||
+  //         hours ||
+  //         minutes) &&
+  //       !valueCleared &&
+  //       !previousValueCleared
+  //     ) {
+  //       const cron = getCronStringFromValues(
+  //         period || defaultPeriodRef.current,
+  //         months,
+  //         monthDays,
+  //         weekDays,
+  //         hours,
+  //         minutes,
+  //         humanizeValue
+  //       )
 
-        setValue(cron)
-        internalValueRef.current = cron
+  //       setValue(cron)
+  //       internalValueRef.current = cron
 
-        onError && onError(undefined)
-        setInternalError(false)
-      } else if (valueCleared) {
-        setValueCleared(false)
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      period,
-      monthDays,
-      months,
-      weekDays,
-      hours,
-      minutes,
-      humanizeValue,
-      valueCleared,
-    ]
-  )
+  //       onError && onError(undefined)
+  //       setInternalError(false)
+  //     } else if (valueCleared) {
+  //       setValueCleared(false)
+  //     }
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [
+  //     period,
+  //     monthDays,
+  //     months,
+  //     weekDays,
+  //     hours,
+  //     minutes,
+  //     humanizeValue,
+  //     valueCleared,
+  //   ]
+  // )
 
-  const handleClear = useCallback(
-    () => {
-      setMonthDays(undefined)
-      setMonths(undefined)
-      setWeekDays(undefined)
-      setHours(undefined)
-      setMinutes(undefined)
+  // const handleClear = useCallback(
+  //   () => {
+  //     setMonthDays(undefined)
+  //     setMonths(undefined)
+  //     setWeekDays(undefined)
+  //     setHours(undefined)
+  //     setMinutes(undefined)
 
-      // When clearButtonAction is 'empty'
-      let newValue = ''
+  //     // When clearButtonAction is 'empty'
+  //     let newValue = ''
 
-      const newPeriod =
-        period !== 'reboot' && period ? period : defaultPeriodRef.current
+  //     const newPeriod =
+  //       period !== 'reboot' && period ? period : defaultPeriodRef.current
 
-      if (newPeriod !== period) {
-        setPeriod(newPeriod)
-      }
+  //     if (newPeriod !== period) {
+  //       setPeriod(newPeriod)
+  //     }
 
-      // When clearButtonAction is 'fill-with-every'
-      if (clearButtonAction === 'fill-with-every') {
-        const cron = getCronStringFromValues(
-          newPeriod,
-          undefined,
-          undefined,
-          undefined,
-          undefined,
-          undefined
-        )
+  //     // When clearButtonAction is 'fill-with-every'
+  //     if (clearButtonAction === 'fill-with-every') {
+  //       const cron = getCronStringFromValues(
+  //         newPeriod,
+  //         undefined,
+  //         undefined,
+  //         undefined,
+  //         undefined,
+  //         undefined
+  //       )
 
-        newValue = cron
-      }
+  //       newValue = cron
+  //     }
 
-      setValue(newValue)
-      internalValueRef.current = newValue
+  //     setValue(newValue)
+  //     internalValueRef.current = newValue
 
-      setValueCleared(true)
+  //     setValueCleared(true)
 
-      if (allowEmpty === 'never' && clearButtonAction === 'empty') {
-        setInternalError(true)
-        setError(onError, locale)
-      } else {
-        onError && onError(undefined)
-        setInternalError(false)
-      }
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [period, setValue, onError, clearButtonAction]
-  )
+  //     if (allowEmpty === 'never' && clearButtonAction === 'empty') {
+  //       setInternalError(true)
+  //       setError(onError, locale)
+  //     } else {
+  //       onError && onError(undefined)
+  //       setInternalError(false)
+  //     }
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [period, setValue, onError, clearButtonAction]
+  // )
 
-  const internalClassName = useMemo(
-    () =>
-      classNames({
-        'react-js-cron': true,
-        'react-js-cron-error': error && displayError,
-        'react-js-cron-disabled': disabled,
-        'react-js-cron-read-only': readOnly,
-        [`${className}`]: !!className,
-        [`${className}-error`]: error && displayError && !!className,
-        [`${className}-disabled`]: disabled && !!className,
-        [`${className}-read-only`]: readOnly && !!className,
-      }),
-    [className, error, displayError, disabled, readOnly]
-  )
+  // const internalClassName = useMemo(
+  //   () =>
+  //     classNames({
+  //       'react-js-cron': true,
+  //       'react-js-cron-error': error && displayError,
+  //       'react-js-cron-disabled': disabled,
+  //       'react-js-cron-read-only': readOnly,
+  //       [`${className}`]: !!className,
+  //       [`${className}-error`]: error && displayError && !!className,
+  //       [`${className}-disabled`]: disabled && !!className,
+  //       [`${className}-read-only`]: readOnly && !!className,
+  //     }),
+  //   [className, error, displayError, disabled, readOnly]
+  // )
 
-  const {
-    className: clearButtonClassNameProp,
-    ...otherClearButtonProps
-  } = clearButtonProps
-  const clearButtonClassName = useMemo(
-    () =>
-      classNames({
-        'react-js-cron-clear-button': true,
-        [`${className}-clear-button`]: !!className,
-        [`${clearButtonClassNameProp}`]: !!clearButtonClassNameProp,
-      }),
-    [className, clearButtonClassNameProp]
-  )
+  // const {
+  //   className: clearButtonClassNameProp,
+  //   ...otherClearButtonProps
+  // } = clearButtonProps
+  // const clearButtonClassName = useMemo(
+  //   () =>
+  //     classNames({
+  //       'react-js-cron-clear-button': true,
+  //       [`${className}-clear-button`]: !!className,
+  //       [`${clearButtonClassNameProp}`]: !!clearButtonClassNameProp,
+  //     }),
+  //   [className, clearButtonClassNameProp]
+  // )
 
-  const otherClearButtonPropsJSON = JSON.stringify(otherClearButtonProps)
-  const clearButtonNode = useMemo(
-    () => {
-      if (clearButton && !readOnly) {
-        return (
-          <Button
-            style={{ marginLeft: '10px' }}
-            className={clearButtonClassName}
-            variant='contained'
-            color='secondary'
-            disabled={disabled}
-            onClick={handleClear}
-          >
-            {locale.clearButtonText || DEFAULT_LOCALE_EN.clearButtonText}
-          </Button>
-        )
-      }
+  // const otherClearButtonPropsJSON = JSON.stringify(otherClearButtonProps)
+  // const clearButtonNode = useMemo(
+  //   () => {
+  //     if (clearButton && !readOnly) {
+  //       return (
+  //         <Button
+  //           style={{ marginLeft: '10px' }}
+  //           className={clearButtonClassName}
+  //           variant='contained'
+  //           color='secondary'
+  //           disabled={disabled}
+  //           onClick={handleClear}
+  //         >
+  //           {locale.clearButtonText || DEFAULT_LOCALE_EN.clearButtonText}
+  //         </Button>
+  //       )
+  //     }
 
-      return null
-    },
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-    [
-      clearButton,
-      readOnly,
-      localeJSON,
-      clearButtonClassName,
-      disabled,
-      otherClearButtonPropsJSON,
-      handleClear,
-    ]
-  )
+  //     return null
+  //   },
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  //   [
+  //     clearButton,
+  //     readOnly,
+  //     localeJSON,
+  //     clearButtonClassName,
+  //     disabled,
+  //     otherClearButtonPropsJSON,
+  //     handleClear,
+  //   ]
+  // )
 
-  const periodForRender = period || defaultPeriodRef.current
-  return (
-    <div className={internalClassName}>
-      <FormGroup>
-        <Period
-          value={periodForRender}
-          setValue={setPeriod}
-          locale={locale}
-          className={className}
-          disabled={disabled}
-          readOnly={readOnly}
-          shortcuts={shortcuts}
-          {...selectProps}
-        />
-      </FormGroup>
+  // const periodForRender = period || defaultPeriodRef.current
+  // return (
+  //   <div className={internalClassName}>
+  //     <FormGroup>
+  //       <Period
+  //         value={periodForRender}
+  //         setValue={setPeriod}
+  //         locale={locale}
+  //         className={className}
+  //         disabled={disabled}
+  //         readOnly={readOnly}
+  //         shortcuts={shortcuts}
+  //         {...selectProps}
+  //       />
+  //     </FormGroup>
 
-      {periodForRender === 'reboot' ? (
-        clearButtonNode
-      ) : (
-        <>
-          {periodForRender === 'year' && (
-            <FormGroup>
-              <Months
-                value={months}
-                setValue={setMonths}
-                locale={locale}
-                className={className}
-                humanizeLabels={humanizeLabels}
-                disabled={disabled}
-                readOnly={readOnly}
-                period={periodForRender}
-                {...selectProps}
-              />
-            </FormGroup>
-          )}
+  //     {periodForRender === 'reboot' ? (
+  //       clearButtonNode
+  //     ) : (
+  //       <>
+  //         {periodForRender === 'year' && (
+  //           <FormGroup>
+  //             <Months
+  //               value={months}
+  //               setValue={setMonths}
+  //               locale={locale}
+  //               className={className}
+  //               humanizeLabels={humanizeLabels}
+  //               disabled={disabled}
+  //               readOnly={readOnly}
+  //               period={periodForRender}
+  //               {...selectProps}
+  //             />
+  //           </FormGroup>
+  //         )}
 
-          {(periodForRender === 'year' || periodForRender === 'month') && (
-            <FormGroup>
-              <MonthDays
-                value={monthDays}
-                setValue={setMonthDays}
-                locale={locale}
-                className={className}
-                weekDays={weekDays}
-                disabled={disabled}
-                readOnly={readOnly}
-                leadingZero={leadingZero}
-                period={periodForRender}
-                {...selectProps}
-              />
-            </FormGroup>
-          )}
+  //         {(periodForRender === 'year' || periodForRender === 'month') && (
+  //           <FormGroup>
+  //             <MonthDays
+  //               value={monthDays}
+  //               setValue={setMonthDays}
+  //               locale={locale}
+  //               className={className}
+  //               weekDays={weekDays}
+  //               disabled={disabled}
+  //               readOnly={readOnly}
+  //               leadingZero={leadingZero}
+  //               period={periodForRender}
+  //               {...selectProps}
+  //             />
+  //           </FormGroup>
+  //         )}
 
-          {(periodForRender === 'year' ||
-            periodForRender === 'month' ||
-            periodForRender === 'week') && (
-              <FormGroup>
-                <WeekDays
-                  value={weekDays}
-                  setValue={setWeekDays}
-                  locale={locale}
-                  className={className}
-                  humanizeLabels={humanizeLabels}
-                  monthDays={monthDays}
-                  disabled={disabled}
-                  readOnly={readOnly}
-                  period={periodForRender}
-                  {...selectProps}
-                />
-              </FormGroup>
-            )}
+  //         {(periodForRender === 'year' ||
+  //           periodForRender === 'month' ||
+  //           periodForRender === 'week') && (
+  //             <FormGroup>
+  //               <WeekDays
+  //                 value={weekDays}
+  //                 setValue={setWeekDays}
+  //                 locale={locale}
+  //                 className={className}
+  //                 humanizeLabels={humanizeLabels}
+  //                 monthDays={monthDays}
+  //                 disabled={disabled}
+  //                 readOnly={readOnly}
+  //                 period={periodForRender}
+  //                 {...selectProps}
+  //               />
+  //             </FormGroup>
+  //           )}
 
-          <div>
-            {periodForRender !== 'minute' && periodForRender !== 'hour' && (
-              <FormGroup>
-                <Hours
-                  value={hours}
-                  setValue={setHours}
-                  locale={locale}
-                  className={className}
-                  disabled={disabled}
-                  readOnly={readOnly}
-                  leadingZero={leadingZero}
-                  clockFormat={clockFormat}
-                  period={periodForRender}
-                  {...selectProps}
-                />
-              </FormGroup>
-            )}
+  //         <div>
+  //           {periodForRender !== 'minute' && periodForRender !== 'hour' && (
+  //             <FormGroup>
+  //               <Hours
+  //                 value={hours}
+  //                 setValue={setHours}
+  //                 locale={locale}
+  //                 className={className}
+  //                 disabled={disabled}
+  //                 readOnly={readOnly}
+  //                 leadingZero={leadingZero}
+  //                 clockFormat={clockFormat}
+  //                 period={periodForRender}
+  //                 {...selectProps}
+  //               />
+  //             </FormGroup>
+  //           )}
 
-            {periodForRender !== 'minute' && (
-              <FormGroup>
-                <Minutes
-                  value={minutes}
-                  setValue={setMinutes}
-                  locale={locale}
-                  period={periodForRender}
-                  className={className}
-                  disabled={disabled}
-                  readOnly={readOnly}
-                  leadingZero={leadingZero}
-                  clockFormat={clockFormat}
-                  {...selectProps}
-                />
-              </FormGroup>
-            )}
+  //           {periodForRender !== 'minute' && (
+  //             <FormGroup>
+  //               <Minutes
+  //                 value={minutes}
+  //                 setValue={setMinutes}
+  //                 locale={locale}
+  //                 period={periodForRender}
+  //                 className={className}
+  //                 disabled={disabled}
+  //                 readOnly={readOnly}
+  //                 leadingZero={leadingZero}
+  //                 clockFormat={clockFormat}
+  //                 {...selectProps}
+  //               />
+  //             </FormGroup>
+  //           )}
 
-            {clearButtonNode}
-          </div>
-        </>
-      )}
-    </div>
-  )
+  //           {clearButtonNode}
+  //         </div>
+  //       </>
+  //     )}
+  //   </div>
+  // )
 }
