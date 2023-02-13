@@ -7,22 +7,14 @@ Object.defineProperty(exports, "__esModule", {
 exports["default"] = Cron;
 var _react = _interopRequireWildcard(require("react"));
 var _material = require("@mui/material");
-var _Period = _interopRequireDefault(require("./fields/Period"));
-var _MonthDays = _interopRequireDefault(require("./fields/MonthDays"));
-var _Months = _interopRequireDefault(require("./fields/Months"));
-var _Hours = _interopRequireDefault(require("./fields/Hours"));
-var _Minutes = _interopRequireDefault(require("./fields/Minutes"));
-var _WeekDays = _interopRequireDefault(require("./fields/WeekDays"));
 var _utils = require("./utils");
 var _locale = require("./locale");
 var _converter = require("./converter");
 require("./styles.css");
 var _excluded = ["clearButton", "clearButtonProps", "clearButtonAction", "locale", "value", "setValue", "displayError", "onError", "className", "defaultPeriod", "allowEmpty", "humanizeLabels", "humanizeValue", "disabled", "readOnly", "leadingZero", "shortcuts", "clockFormat"],
   _excluded2 = ["className"];
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
 function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { "default": obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj["default"] = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
-function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
 function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
@@ -184,64 +176,5 @@ function Cron(props) {
   }, [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
   var periodForRender = period || defaultPeriodRef.current;
   console.log("TOTOTOO");
-  return _react["default"].createElement("div", {
-    className: internalClassName
-  }, _react["default"].createElement("h1", null, "ICI"), _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement(_Period["default"], _extends({
-    value: periodForRender,
-    setValue: setPeriod,
-    locale: locale,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    shortcuts: shortcuts
-  }, selectProps))), periodForRender === 'reboot' ? clearButtonNode : _react["default"].createElement(_react["default"].Fragment, null, periodForRender === 'year' && _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement(_Months["default"], _extends({
-    value: months,
-    setValue: setMonths,
-    locale: locale,
-    className: className,
-    humanizeLabels: humanizeLabels,
-    disabled: disabled,
-    readOnly: readOnly,
-    period: periodForRender
-  }, selectProps))), (periodForRender === 'year' || periodForRender === 'month') && _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement(_MonthDays["default"], _extends({
-    value: monthDays,
-    setValue: setMonthDays,
-    locale: locale,
-    className: className,
-    weekDays: weekDays,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    period: periodForRender
-  }, selectProps))), (periodForRender === 'year' || periodForRender === 'month' || periodForRender === 'week') && _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement(_WeekDays["default"], _extends({
-    value: weekDays,
-    setValue: setWeekDays,
-    locale: locale,
-    className: className,
-    humanizeLabels: humanizeLabels,
-    monthDays: monthDays,
-    disabled: disabled,
-    readOnly: readOnly,
-    period: periodForRender
-  }, selectProps))), _react["default"].createElement("div", null, periodForRender !== 'minute' && periodForRender !== 'hour' && _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement(_Hours["default"], _extends({
-    value: hours,
-    setValue: setHours,
-    locale: locale,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    clockFormat: clockFormat,
-    period: periodForRender
-  }, selectProps))), periodForRender !== 'minute' && _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement(_Minutes["default"], _extends({
-    value: minutes,
-    setValue: setMinutes,
-    locale: locale,
-    period: periodForRender,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    clockFormat: clockFormat
-  }, selectProps))), clearButtonNode)));
+  return _react["default"].createElement("h1", null, "ICI");
 }
