@@ -130,6 +130,7 @@ export default function Cron(props) {
     return null;
   }, [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
   const periodForRender = period || defaultPeriodRef.current;
+  console.log("TOTOTOO");
   return React.createElement("div", {
     className: internalClassName
   }, React.createElement(FormGroup, null, React.createElement(Period, _extends({
