@@ -276,12 +276,14 @@ export default function Cron(props: CronProps) {
           shortcuts={shortcuts}
           {...selectProps}
         />
+      </FormGroup>
 
-        {periodForRender === 'reboot' ? (
-          clearButtonNode
-        ) : (
-          <>
-            {periodForRender === 'year' && (
+      {periodForRender === 'reboot' ? (
+        clearButtonNode
+      ) : (
+        <>
+          {periodForRender === 'year' && (
+            <FormGroup>
               <Months
                 value={months}
                 setValue={setMonths}
@@ -293,9 +295,11 @@ export default function Cron(props: CronProps) {
                 period={periodForRender}
                 {...selectProps}
               />
-            )}
+            </FormGroup>
+          )}
 
-            {(periodForRender === 'year' || periodForRender === 'month') && (
+          {(periodForRender === 'year' || periodForRender === 'month') && (
+            <FormGroup>
               <MonthDays
                 value={monthDays}
                 setValue={setMonthDays}
@@ -308,11 +312,13 @@ export default function Cron(props: CronProps) {
                 period={periodForRender}
                 {...selectProps}
               />
-            )}
+            </FormGroup>
+          )}
 
-            {(periodForRender === 'year' ||
-              periodForRender === 'month' ||
-              periodForRender === 'week') && (
+          {(periodForRender === 'year' ||
+            periodForRender === 'month' ||
+            periodForRender === 'week') && (
+              <FormGroup>
                 <WeekDays
                   value={weekDays}
                   setValue={setWeekDays}
@@ -325,10 +331,12 @@ export default function Cron(props: CronProps) {
                   period={periodForRender}
                   {...selectProps}
                 />
-              )}
+              </FormGroup>
+            )}
 
-            <div>
-              {periodForRender !== 'minute' && periodForRender !== 'hour' && (
+          <div>
+            {periodForRender !== 'minute' && periodForRender !== 'hour' && (
+              <FormGroup>
                 <Hours
                   value={hours}
                   setValue={setHours}
@@ -341,9 +349,11 @@ export default function Cron(props: CronProps) {
                   period={periodForRender}
                   {...selectProps}
                 />
-              )}
+              </FormGroup>
+            )}
 
-              {periodForRender !== 'minute' && (
+            {periodForRender !== 'minute' && (
+              <FormGroup>
                 <Minutes
                   value={minutes}
                   setValue={setMinutes}
@@ -356,13 +366,13 @@ export default function Cron(props: CronProps) {
                   clockFormat={clockFormat}
                   {...selectProps}
                 />
-              )}
+              </FormGroup>
+            )}
 
-              {clearButtonNode}
-            </div>
-          </>
-        )}
-      </FormGroup>
+            {clearButtonNode}
+          </div>
+        </>
+      )}
     </div>
   )
 }
