@@ -60,7 +60,7 @@ export default function Period(props) {
   }), [className, locale.prefixPeriod]);
   return React.createElement("div", {
     className: internalClassName
-  }, locale.prefixPeriod !== '' && React.createElement("span", null, locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod), React.createElement(Select, _extends({
+  }, locale.prefixPeriod !== '' && React.createElement("span", null, locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod, " TOTOTO"), React.createElement(Select, _extends({
     key: JSON.stringify(locale),
     defaultValue: value,
     value: value,
