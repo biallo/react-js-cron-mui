@@ -96,9 +96,9 @@ export default function Period(props: PeriodProps) {
 
   return (
     <div className={internalClassName}>
-      <span>AAAAAAAAAAAAAA</span>
+      <span>BBBBBBBBBBBBBBBBAAAAA</span>
       {locale.prefixPeriod !== '' && (
-        <span>{locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod} TOTOTO</span>
+        <span>{locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod}</span>
       )}
 
       <Select
