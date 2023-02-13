@@ -131,64 +131,68 @@ export default function Cron(props) {
   }, [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
   const periodForRender = period || defaultPeriodRef.current;
   console.log("TOTOTOO");
-  return React.createElement("div", {
-    className: internalClassName
-  }, React.createElement("h1", null, "ICI"), React.createElement(FormGroup, null, React.createElement(Period, _extends({
-    value: periodForRender,
-    setValue: setPeriod,
-    locale: locale,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    shortcuts: shortcuts
-  }, selectProps))), periodForRender === 'reboot' ? clearButtonNode : React.createElement(React.Fragment, null, periodForRender === 'year' && React.createElement(FormGroup, null, React.createElement(Months, _extends({
-    value: months,
-    setValue: setMonths,
-    locale: locale,
-    className: className,
-    humanizeLabels: humanizeLabels,
-    disabled: disabled,
-    readOnly: readOnly,
-    period: periodForRender
-  }, selectProps))), (periodForRender === 'year' || periodForRender === 'month') && React.createElement(FormGroup, null, React.createElement(MonthDays, _extends({
-    value: monthDays,
-    setValue: setMonthDays,
-    locale: locale,
-    className: className,
-    weekDays: weekDays,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    period: periodForRender
-  }, selectProps))), (periodForRender === 'year' || periodForRender === 'month' || periodForRender === 'week') && React.createElement(FormGroup, null, React.createElement(WeekDays, _extends({
-    value: weekDays,
-    setValue: setWeekDays,
-    locale: locale,
-    className: className,
-    humanizeLabels: humanizeLabels,
-    monthDays: monthDays,
-    disabled: disabled,
-    readOnly: readOnly,
-    period: periodForRender
-  }, selectProps))), React.createElement("div", null, periodForRender !== 'minute' && periodForRender !== 'hour' && React.createElement(FormGroup, null, React.createElement(Hours, _extends({
-    value: hours,
-    setValue: setHours,
-    locale: locale,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    clockFormat: clockFormat,
-    period: periodForRender
-  }, selectProps))), periodForRender !== 'minute' && React.createElement(FormGroup, null, React.createElement(Minutes, _extends({
-    value: minutes,
-    setValue: setMinutes,
-    locale: locale,
-    period: periodForRender,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    clockFormat: clockFormat
-  }, selectProps))), clearButtonNode)));
+  if (clearButton) {
+    return React.createElement("div", {
+      className: internalClassName
+    }, React.createElement("h1", null, "ICI"), React.createElement(FormGroup, null, React.createElement(Period, _extends({
+      value: periodForRender,
+      setValue: setPeriod,
+      locale: locale,
+      className: className,
+      disabled: disabled,
+      readOnly: readOnly,
+      shortcuts: shortcuts
+    }, selectProps))), periodForRender === 'reboot' ? clearButtonNode : React.createElement(React.Fragment, null, periodForRender === 'year' && React.createElement(FormGroup, null, React.createElement(Months, _extends({
+      value: months,
+      setValue: setMonths,
+      locale: locale,
+      className: className,
+      humanizeLabels: humanizeLabels,
+      disabled: disabled,
+      readOnly: readOnly,
+      period: periodForRender
+    }, selectProps))), (periodForRender === 'year' || periodForRender === 'month') && React.createElement(FormGroup, null, React.createElement(MonthDays, _extends({
+      value: monthDays,
+      setValue: setMonthDays,
+      locale: locale,
+      className: className,
+      weekDays: weekDays,
+      disabled: disabled,
+      readOnly: readOnly,
+      leadingZero: leadingZero,
+      period: periodForRender
+    }, selectProps))), (periodForRender === 'year' || periodForRender === 'month' || periodForRender === 'week') && React.createElement(FormGroup, null, React.createElement(WeekDays, _extends({
+      value: weekDays,
+      setValue: setWeekDays,
+      locale: locale,
+      className: className,
+      humanizeLabels: humanizeLabels,
+      monthDays: monthDays,
+      disabled: disabled,
+      readOnly: readOnly,
+      period: periodForRender
+    }, selectProps))), React.createElement("div", null, periodForRender !== 'minute' && periodForRender !== 'hour' && React.createElement(FormGroup, null, React.createElement(Hours, _extends({
+      value: hours,
+      setValue: setHours,
+      locale: locale,
+      className: className,
+      disabled: disabled,
+      readOnly: readOnly,
+      leadingZero: leadingZero,
+      clockFormat: clockFormat,
+      period: periodForRender
+    }, selectProps))), periodForRender !== 'minute' && React.createElement(FormGroup, null, React.createElement(Minutes, _extends({
+      value: minutes,
+      setValue: setMinutes,
+      locale: locale,
+      period: periodForRender,
+      className: className,
+      disabled: disabled,
+      readOnly: readOnly,
+      leadingZero: leadingZero,
+      clockFormat: clockFormat
+    }, selectProps))), clearButtonNode)));
+  } else {
+    return React.createElement("h1", null, "TOTOT");
+  }
 }
