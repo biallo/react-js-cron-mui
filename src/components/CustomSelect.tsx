@@ -128,6 +128,8 @@ export default function CustomSelect(props: CustomSelectProps) {
     [className]
   )
 
+  console.log(source, unit, label)
+
   return (
     <FormControl>
       <InputLabel id={`react-js-cron-mui-${unit}-${source}`}>{label}</InputLabel>

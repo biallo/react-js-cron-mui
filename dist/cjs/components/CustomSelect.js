@@ -100,6 +100,7 @@ function CustomSelect(props) {
       'react-js-cron-custom-select': true
     }, "".concat(className, "-select"), !!className));
   }, [className]);
+  console.log(source, unit, label);
   return _react["default"].createElement(_FormControl["default"], null, _react["default"].createElement(_InputLabel["default"], {
     id: "react-js-cron-mui-".concat(unit, "-").concat(source)
   }, label), _react["default"].createElement(_Select["default"], _extends({
