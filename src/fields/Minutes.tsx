@@ -42,9 +42,9 @@ export default function Minutes(props: MinutesProps) {
             DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod
             : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes
         }
-        // label={period === 'hour' ?
-        //   locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod :
-        //   locale.prefixMinutes !== '' ? locale.prefixMinutes : DEFAULT_LOCALE_EN.prefixMinutes}
+        label={period === 'hour' ?
+          locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod :
+          locale.prefixMinutes !== '' ? locale.prefixMinutes : DEFAULT_LOCALE_EN.prefixMinutes}
         value={value}
         unit={UNITS[0]}
         setValue={setValue}
@@ -57,7 +57,6 @@ export default function Minutes(props: MinutesProps) {
         period={period}
         source={source}
         {...selectProps}
-        label="TOTO"
       />
 
       {

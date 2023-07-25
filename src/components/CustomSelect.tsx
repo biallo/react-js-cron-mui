@@ -128,11 +128,9 @@ export default function CustomSelect(props: CustomSelectProps) {
     [className]
   )
 
-  console.log(source, unit, label)
-
   return (
     <FormControl>
-      <InputLabel id={`react-js-cron-mui-${unit}-${source}`}>{label}</InputLabel>
+      <InputLabel id={`react-js-cron-mui-${unit.type}-${source}`}>{label}</InputLabel>
       <Select
         multiple={true}
         open={readOnly ? false : undefined}
@@ -142,7 +140,7 @@ export default function CustomSelect(props: CustomSelectProps) {
         className={internalClassName}
         autoWidth={false}
         disabled={disabled}
-        labelId={`react-js-cron-mui-${unit}-${source}`}
+        labelId={`react-js-cron-mui-${unit.type}-${source}`}
         {...selectProps}
       >
         {options.map((obj) => (
