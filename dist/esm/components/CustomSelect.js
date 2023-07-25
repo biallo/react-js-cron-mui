@@ -82,7 +82,8 @@ export default function CustomSelect(props) {
     [`${className}-select`]: !!className
   }), [className]);
   return React.createElement(FormControl, {
-    variant: "filled"
+    variant: "filled",
+    focused: true
   }, React.createElement(InputLabel, {
     id: `react-js-cron-mui-${unit.type}-${source}`
   }, label), React.createElement(Select, _extends({
@@ -91,12 +92,12 @@ export default function CustomSelect(props) {
     value: stringValue,
     onChange: simpleClick,
     renderValue: renderTag,
-    className: internalClassName,
     autoWidth: false,
     disabled: disabled,
-    labelId: `react-js-cron-mui-${unit.type}-${source}`,
+    labelId: `react-js-cron-mui-${unit.type}-${source}`
+  }, selectProps, {
     variant: "filled"
-  }, selectProps), options.map(obj => React.createElement(MenuItem, {
+  }), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
   }, obj.label))));
