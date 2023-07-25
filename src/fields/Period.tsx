@@ -105,7 +105,7 @@ export default function Period(props: PeriodProps) {
           className={selectClassName}
           disabled={disabled}
           open={readOnly ? false : undefined}
-          label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
+          label={<span>{locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}</span>}
           {...selectProps}
         >
           {options.map((obj) => (
