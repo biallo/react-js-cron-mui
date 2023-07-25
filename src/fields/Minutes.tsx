@@ -32,26 +32,18 @@ export default function Minutes(props: MinutesProps) {
 
   return (
     <div className={internalClassName}>
-      {period === 'hour'
-        ? locale.prefixMinutesForHourPeriod !== '' && (
-            <span>
-              {locale.prefixMinutesForHourPeriod ||
-                DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod}
-            </span>
-          )
-        : locale.prefixMinutes !== '' && (
-            <span>
-              {locale.prefixMinutes || DEFAULT_LOCALE_EN.prefixMinutes}
-            </span>
-          )}
+
 
       <CustomSelect
         placeholder={
           period === 'hour'
             ? locale.emptyMinutesForHourPeriod ||
-              DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod
+            DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod
             : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes
         }
+        label={period === 'hour' ?
+          locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod :
+          locale.prefixMinutes !== '' ? locale.prefixMinutes : DEFAULT_LOCALE_EN.prefixMinutes}
         value={value}
         unit={UNITS[0]}
         setValue={setValue}
@@ -65,12 +57,14 @@ export default function Minutes(props: MinutesProps) {
         {...selectProps}
       />
 
-      {period === 'hour' && locale.suffixMinutesForHourPeriod !== '' && (
-        <span>
-          {locale.suffixMinutesForHourPeriod ||
-            DEFAULT_LOCALE_EN.suffixMinutesForHourPeriod}
-        </span>
-      )}
-    </div>
+      {
+        period === 'hour' && locale.suffixMinutesForHourPeriod !== '' && (
+          <span>
+            {locale.suffixMinutesForHourPeriod ||
+              DEFAULT_LOCALE_EN.suffixMinutesForHourPeriod}
+          </span>
+        )
+      }
+    </div >
   )
 }

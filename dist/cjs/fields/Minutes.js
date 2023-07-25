@@ -40,8 +40,9 @@ function Minutes(props) {
   }, [className]);
   return _react["default"].createElement("div", {
     className: internalClassName
-  }, period === 'hour' ? locale.prefixMinutesForHourPeriod !== '' && _react["default"].createElement("span", null, locale.prefixMinutesForHourPeriod || _locale.DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod) : locale.prefixMinutes !== '' && _react["default"].createElement("span", null, locale.prefixMinutes || _locale.DEFAULT_LOCALE_EN.prefixMinutes), _react["default"].createElement(_CustomSelect["default"], _extends({
+  }, _react["default"].createElement(_CustomSelect["default"], _extends({
     placeholder: period === 'hour' ? locale.emptyMinutesForHourPeriod || _locale.DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod : locale.emptyMinutes || _locale.DEFAULT_LOCALE_EN.emptyMinutes,
+    label: period === 'hour' ? locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : _locale.DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod : locale.prefixMinutes !== '' ? locale.prefixMinutes : _locale.DEFAULT_LOCALE_EN.prefixMinutes,
     value: value,
     unit: _constants.UNITS[0],
     setValue: setValue,

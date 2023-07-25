@@ -45,7 +45,7 @@ export default function WeekDays(props) {
   const monthDaysIsDisplayed = !readOnly || monthDays && monthDays.length > 0 || (!monthDays || monthDays.length === 0) && (!value || value.length === 0);
   return displayWeekDays ? React.createElement("div", {
     className: internalClassName
-  }, locale.prefixWeekDays !== '' && (period === 'week' || !monthDaysIsDisplayed) && React.createElement("span", null, locale.prefixWeekDays || DEFAULT_LOCALE_EN.prefixWeekDays), locale.prefixWeekDaysForMonthAndYearPeriod !== '' && period !== 'week' && monthDaysIsDisplayed && React.createElement("span", null, locale.prefixWeekDaysForMonthAndYearPeriod || DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod), React.createElement(CustomSelect, _extends({
+  }, React.createElement(CustomSelect, _extends({
     placeholder: placeholder,
     optionsList: optionsList,
     value: value,
@@ -58,6 +58,7 @@ export default function WeekDays(props) {
     humanizeLabels: humanizeLabels,
     disabled: disabled,
     readOnly: readOnly,
-    period: period
+    period: period,
+    label: period === 'week' || !monthDaysIsDisplayed ? locale.prefixWeekDays || DEFAULT_LOCALE_EN.prefixWeekDays : period !== 'week' && monthDaysIsDisplayed && (locale.prefixWeekDaysForMonthAndYearPeriod || DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod)
   }, selectProps))) : null;
 }

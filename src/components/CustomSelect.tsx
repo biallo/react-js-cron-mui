@@ -21,6 +21,7 @@ export default function CustomSelect(props: CustomSelectProps) {
     clockFormat,
     optionsList,
     unit,
+    label,
     ...selectProps
   } = props
 
@@ -136,6 +137,7 @@ export default function CustomSelect(props: CustomSelectProps) {
         className={internalClassName}
         autoWidth={false}
         disabled={disabled}
+        label={label}
         {...selectProps}
       >
         {options.map((obj) => (

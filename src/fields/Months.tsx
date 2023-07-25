@@ -33,10 +33,6 @@ export default function Months(props: MonthsProps) {
 
   return (
     <div className={internalClassName}>
-      {locale.prefixMonths !== '' && (
-        <span>{locale.prefixMonths || DEFAULT_LOCALE_EN.prefixMonths}</span>
-      )}
-
       <CustomSelect
         placeholder={locale.emptyMonths || DEFAULT_LOCALE_EN.emptyMonths}
         optionsList={optionsList}
@@ -54,6 +50,7 @@ export default function Months(props: MonthsProps) {
         disabled={disabled}
         readOnly={readOnly}
         period={period}
+        label={locale.prefixMonths !== '' ? locale.prefixMonths : DEFAULT_LOCALE_EN.prefixMonths}
         {...selectProps}
       />
     </div>

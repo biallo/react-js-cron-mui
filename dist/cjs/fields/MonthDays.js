@@ -50,7 +50,7 @@ function MonthDays(props) {
   var displayMonthDays = !readOnly || value && value.length > 0 || (!value || value.length === 0) && (!weekDays || weekDays.length === 0);
   return displayMonthDays ? _react["default"].createElement("div", {
     className: internalClassName
-  }, locale.prefixMonthDays !== '' && _react["default"].createElement("span", null, locale.prefixMonthDays || _locale.DEFAULT_LOCALE_EN.prefixMonthDays), _react["default"].createElement(_CustomSelect["default"], _extends({
+  }, _react["default"].createElement(_CustomSelect["default"], _extends({
     placeholder: placeholder,
     value: value,
     setValue: setValue,
@@ -60,6 +60,7 @@ function MonthDays(props) {
     disabled: disabled,
     readOnly: readOnly,
     leadingZero: leadingZero,
-    period: period
+    period: period,
+    label: locale.prefixMonthDays !== '' ? locale.prefixMonthDays : _locale.DEFAULT_LOCALE_EN.prefixMonthDays
   }, selectProps))) : null;
 }

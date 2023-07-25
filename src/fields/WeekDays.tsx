@@ -60,22 +60,6 @@ export default function WeekDays(props: WeekDaysProps) {
 
   return displayWeekDays ? (
     <div className={internalClassName}>
-      {locale.prefixWeekDays !== '' &&
-        (period === 'week' || !monthDaysIsDisplayed) && (
-          <span>
-            {locale.prefixWeekDays || DEFAULT_LOCALE_EN.prefixWeekDays}
-          </span>
-        )}
-
-      {locale.prefixWeekDaysForMonthAndYearPeriod !== '' &&
-        period !== 'week' &&
-        monthDaysIsDisplayed && (
-          <span>
-            {locale.prefixWeekDaysForMonthAndYearPeriod ||
-              DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod}
-          </span>
-        )}
-
       <CustomSelect
         placeholder={placeholder}
         optionsList={optionsList}
@@ -93,8 +77,10 @@ export default function WeekDays(props: WeekDaysProps) {
         disabled={disabled}
         readOnly={readOnly}
         period={period}
+        label={period === 'week' || !monthDaysIsDisplayed ? locale.prefixWeekDays || DEFAULT_LOCALE_EN.prefixWeekDays :
+          period !== 'week' && monthDaysIsDisplayed && (locale.prefixWeekDaysForMonthAndYearPeriod || DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod)}
         {...selectProps}
       />
-    </div>
+    </div >
   ) : null
 }

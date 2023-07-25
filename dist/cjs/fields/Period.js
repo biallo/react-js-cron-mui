@@ -78,14 +78,15 @@ function Period(props) {
   }, [className, locale.prefixPeriod]);
   return _react["default"].createElement("div", {
     className: internalClassName
-  }, locale.prefixPeriod !== '' && _react["default"].createElement("span", null, locale.prefixPeriod || _locale.DEFAULT_LOCALE_EN.prefixPeriod), _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_material.Select, _extends({
+  }, _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_material.Select, _extends({
     key: JSON.stringify(locale),
     defaultValue: value,
     value: value,
     onChange: handleChange,
     className: selectClassName,
     disabled: disabled,
-    open: readOnly ? false : undefined
+    open: readOnly ? false : undefined,
+    label: locale.prefixPeriod !== '' ? locale.prefixPeriod : _locale.DEFAULT_LOCALE_EN.prefixPeriod
   }, selectProps), options.map(function (obj) {
     return _react["default"].createElement(_material.MenuItem, {
       key: obj.value,

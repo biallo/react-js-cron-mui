@@ -96,9 +96,6 @@ export default function Period(props: PeriodProps) {
 
   return (
     <div className={internalClassName}>
-      {locale.prefixPeriod !== '' && (
-        <span>{locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod}</span>
-      )}
       <FormControl>
         <Select
           key={JSON.stringify(locale)}
@@ -108,6 +105,7 @@ export default function Period(props: PeriodProps) {
           className={selectClassName}
           disabled={disabled}
           open={readOnly ? false : undefined}
+          label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
           {...selectProps}
         >
           {options.map((obj) => (

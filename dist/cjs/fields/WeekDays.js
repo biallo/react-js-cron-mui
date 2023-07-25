@@ -54,7 +54,7 @@ function WeekDays(props) {
   var monthDaysIsDisplayed = !readOnly || monthDays && monthDays.length > 0 || (!monthDays || monthDays.length === 0) && (!value || value.length === 0);
   return displayWeekDays ? _react["default"].createElement("div", {
     className: internalClassName
-  }, locale.prefixWeekDays !== '' && (period === 'week' || !monthDaysIsDisplayed) && _react["default"].createElement("span", null, locale.prefixWeekDays || _locale.DEFAULT_LOCALE_EN.prefixWeekDays), locale.prefixWeekDaysForMonthAndYearPeriod !== '' && period !== 'week' && monthDaysIsDisplayed && _react["default"].createElement("span", null, locale.prefixWeekDaysForMonthAndYearPeriod || _locale.DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod), _react["default"].createElement(_CustomSelect["default"], _extends({
+  }, _react["default"].createElement(_CustomSelect["default"], _extends({
     placeholder: placeholder,
     optionsList: optionsList,
     value: value,
@@ -67,6 +67,7 @@ function WeekDays(props) {
     humanizeLabels: humanizeLabels,
     disabled: disabled,
     readOnly: readOnly,
-    period: period
+    period: period,
+    label: period === 'week' || !monthDaysIsDisplayed ? locale.prefixWeekDays || _locale.DEFAULT_LOCALE_EN.prefixWeekDays : period !== 'week' && monthDaysIsDisplayed && (locale.prefixWeekDaysForMonthAndYearPeriod || _locale.DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod)
   }, selectProps))) : null;
 }

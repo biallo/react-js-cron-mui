@@ -60,14 +60,15 @@ export default function Period(props) {
   }), [className, locale.prefixPeriod]);
   return React.createElement("div", {
     className: internalClassName
-  }, locale.prefixPeriod !== '' && React.createElement("span", null, locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod), React.createElement(FormControl, null, React.createElement(Select, _extends({
+  }, React.createElement(FormControl, null, React.createElement(Select, _extends({
     key: JSON.stringify(locale),
     defaultValue: value,
     value: value,
     onChange: handleChange,
     className: selectClassName,
     disabled: disabled,
-    open: readOnly ? false : undefined
+    open: readOnly ? false : undefined,
+    label: locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod
   }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
