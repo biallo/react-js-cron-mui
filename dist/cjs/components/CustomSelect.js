@@ -100,9 +100,8 @@ function CustomSelect(props) {
       'react-js-cron-custom-select': true
     }, "".concat(className, "-select"), !!className));
   }, [className]);
-  console.log(source, unit, label);
   return _react["default"].createElement(_FormControl["default"], null, _react["default"].createElement(_InputLabel["default"], {
-    id: "react-js-cron-mui-".concat(unit, "-").concat(source)
+    id: "react-js-cron-mui-".concat(unit.type, "-").concat(source)
   }, label), _react["default"].createElement(_Select["default"], _extends({
     multiple: true,
     open: readOnly ? false : undefined,
@@ -112,7 +111,7 @@ function CustomSelect(props) {
     className: internalClassName,
     autoWidth: false,
     disabled: disabled,
-    labelId: "react-js-cron-mui-".concat(unit, "-").concat(source)
+    labelId: "react-js-cron-mui-".concat(unit.type, "-").concat(source)
   }, selectProps), options.map(function (obj) {
     return _react["default"].createElement(_MenuItem["default"], {
       key: obj.value,

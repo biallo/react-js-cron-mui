@@ -81,9 +81,8 @@ export default function CustomSelect(props) {
     'react-js-cron-custom-select': true,
     [`${className}-select`]: !!className
   }), [className]);
-  console.log(source, unit, label);
   return React.createElement(FormControl, null, React.createElement(InputLabel, {
-    id: `react-js-cron-mui-${unit}-${source}`
+    id: `react-js-cron-mui-${unit.type}-${source}`
   }, label), React.createElement(Select, _extends({
     multiple: true,
     open: readOnly ? false : undefined,
@@ -93,7 +92,7 @@ export default function CustomSelect(props) {
     className: internalClassName,
     autoWidth: false,
     disabled: disabled,
-    labelId: `react-js-cron-mui-${unit}-${source}`
+    labelId: `react-js-cron-mui-${unit.type}-${source}`
   }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value

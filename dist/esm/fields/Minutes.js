@@ -31,6 +31,7 @@ export default function Minutes(props) {
     className: internalClassName
   }, React.createElement(CustomSelect, _extends({
     placeholder: period === 'hour' ? locale.emptyMinutesForHourPeriod || DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes,
+    label: period === 'hour' ? locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod : locale.prefixMinutes !== '' ? locale.prefixMinutes : DEFAULT_LOCALE_EN.prefixMinutes,
     value: value,
     unit: UNITS[0],
     setValue: setValue,
@@ -42,7 +43,5 @@ export default function Minutes(props) {
     clockFormat: clockFormat,
     period: period,
     source: source
-  }, selectProps, {
-    label: "TOTO"
-  })), period === 'hour' && locale.suffixMinutesForHourPeriod !== '' && React.createElement("span", null, locale.suffixMinutesForHourPeriod || DEFAULT_LOCALE_EN.suffixMinutesForHourPeriod));
+  }, selectProps)), period === 'hour' && locale.suffixMinutesForHourPeriod !== '' && React.createElement("span", null, locale.suffixMinutesForHourPeriod || DEFAULT_LOCALE_EN.suffixMinutesForHourPeriod));
 }
