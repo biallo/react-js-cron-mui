@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
-import { Select, MenuItem, FormControl } from '@mui/material'
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material'
 
 import { PeriodProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
@@ -14,6 +14,7 @@ export default function Period(props: PeriodProps) {
     disabled,
     readOnly,
     shortcuts,
+    source,
     ...selectProps
   } = props
   let options = [
@@ -99,6 +100,9 @@ export default function Period(props: PeriodProps) {
   return (
     <div className={internalClassName}>
       <FormControl>
+        <InputLabel id={`react-js-cron-mui-period-${source}`}>
+          {locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
+        </InputLabel>
         <Select
           key={JSON.stringify(locale)}
           defaultValue={value}
@@ -107,9 +111,8 @@ export default function Period(props: PeriodProps) {
           className={selectClassName}
           disabled={disabled}
           open={readOnly ? false : undefined}
+          labelId={`react-js-cron-mui-period-${source}`}
           {...selectProps}
-          // label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
-          label="TOTO"
         >
           {options.map((obj) => (
             <MenuItem key={obj.value} value={obj.value}>

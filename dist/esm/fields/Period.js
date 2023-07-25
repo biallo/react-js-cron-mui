@@ -1,9 +1,9 @@
-const _excluded = ["value", "setValue", "locale", "className", "disabled", "readOnly", "shortcuts"];
+const _excluded = ["value", "setValue", "locale", "className", "disabled", "readOnly", "shortcuts", "source"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 import React, { useCallback, useMemo } from 'react';
-import { Select, MenuItem, FormControl } from '@mui/material';
+import { Select, MenuItem, FormControl, InputLabel } from '@mui/material';
 import { DEFAULT_LOCALE_EN } from '../locale';
 import { classNames } from '../utils';
 export default function Period(props) {
@@ -14,7 +14,8 @@ export default function Period(props) {
       className,
       disabled,
       readOnly,
-      shortcuts
+      shortcuts,
+      source
     } = props,
     selectProps = _objectWithoutProperties(props, _excluded);
   let options = [{
@@ -61,17 +62,18 @@ export default function Period(props) {
   console.log(selectProps);
   return React.createElement("div", {
     className: internalClassName
-  }, React.createElement(FormControl, null, React.createElement(Select, _extends({
+  }, React.createElement(FormControl, null, React.createElement(InputLabel, {
+    id: `react-js-cron-mui-period-${source}`
+  }, locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod), React.createElement(Select, _extends({
     key: JSON.stringify(locale),
     defaultValue: value,
     value: value,
     onChange: handleChange,
     className: selectClassName,
     disabled: disabled,
-    open: readOnly ? false : undefined
-  }, selectProps, {
-    label: "TOTO"
-  }), options.map(obj => React.createElement(MenuItem, {
+    open: readOnly ? false : undefined,
+    labelId: `react-js-cron-mui-period-${source}`
+  }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
   }, obj.label)))));
