@@ -251,6 +251,7 @@ export interface HoursProps extends FieldProps {
 export interface MinutesProps extends FieldProps {
   leadingZero: LeadingZero
   clockFormat?: ClockFormat
+  source?: string
 }
 export interface CustomSelectProps
   extends Omit<
@@ -282,7 +283,7 @@ export interface CustomSelectProps
   clockFormat?: ClockFormat
   period: PeriodType
   unit: Unit
-  source: string
+  source?: string
 }
 export type SetValueNumbersOrUndefined = Dispatch<
   SetStateAction<number[] | undefined>
