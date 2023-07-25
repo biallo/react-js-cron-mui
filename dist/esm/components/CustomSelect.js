@@ -92,7 +92,8 @@ export default function CustomSelect(props) {
     className: internalClassName,
     autoWidth: false,
     disabled: disabled,
-    labelId: `react-js-cron-mui-${unit.type}-${source}`
+    labelId: `react-js-cron-mui-${unit.type}-${source}`,
+    variant: "filled"
   }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
