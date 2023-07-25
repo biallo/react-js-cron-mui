@@ -8,6 +8,7 @@ exports["default"] = CustomSelect;
 var _react = _interopRequireWildcard(require("react"));
 var _MenuItem = _interopRequireDefault(require("@mui/material/MenuItem"));
 var _Select = _interopRequireDefault(require("@mui/material/Select"));
+var _FormControl = _interopRequireDefault(require("@mui/material/FormControl"));
 var _locale = require("../locale");
 var _utils = require("../utils");
 var _converter = require("../converter");
@@ -96,7 +97,7 @@ function CustomSelect(props) {
       'react-js-cron-custom-select': true
     }, "".concat(className, "-select"), !!className));
   }, [className]);
-  return _react["default"].createElement(_Select["default"], _extends({
+  return _react["default"].createElement(_FormControl["default"], null, _react["default"].createElement(_Select["default"], _extends({
     multiple: true,
     open: readOnly ? false : undefined,
     value: stringValue,
@@ -110,5 +111,5 @@ function CustomSelect(props) {
       key: obj.value,
       value: obj.value
     }, obj.label);
-  }));
+  })));
 }

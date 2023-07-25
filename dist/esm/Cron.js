@@ -4,7 +4,7 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
-import { Button, FormGroup } from '@mui/material';
+import { Button } from '@mui/material';
 import Period from './fields/Period';
 import MonthDays from './fields/MonthDays';
 import Months from './fields/Months';
@@ -130,7 +130,7 @@ export default function Cron(props) {
     return null;
   }, [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
   const periodForRender = period || defaultPeriodRef.current;
-  return React.createElement(FormGroup, null, React.createElement("div", {
+  return React.createElement("div", {
     className: internalClassName
   }, React.createElement(Period, _extends({
     value: periodForRender,
@@ -189,5 +189,5 @@ export default function Cron(props) {
     readOnly: readOnly,
     leadingZero: leadingZero,
     clockFormat: clockFormat
-  }, selectProps)), clearButtonNode))));
+  }, selectProps)), clearButtonNode)));
 }

@@ -3,7 +3,7 @@ function _extends() { _extends = Object.assign ? Object.assign.bind() : function
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
 import React, { useCallback, useMemo } from 'react';
-import { Select, MenuItem } from '@mui/material';
+import { Select, MenuItem, FormControl } from '@mui/material';
 import { DEFAULT_LOCALE_EN } from '../locale';
 import { classNames } from '../utils';
 export default function Period(props) {
@@ -60,7 +60,7 @@ export default function Period(props) {
   }), [className, locale.prefixPeriod]);
   return React.createElement("div", {
     className: internalClassName
-  }, locale.prefixPeriod !== '' && React.createElement("span", null, locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod), React.createElement(Select, _extends({
+  }, locale.prefixPeriod !== '' && React.createElement("span", null, locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod), React.createElement(FormControl, null, React.createElement(Select, _extends({
     key: JSON.stringify(locale),
     defaultValue: value,
     value: value,
@@ -71,5 +71,5 @@ export default function Period(props) {
   }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
-  }, obj.label))));
+  }, obj.label)))));
 }

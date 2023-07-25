@@ -78,7 +78,7 @@ function Period(props) {
   }, [className, locale.prefixPeriod]);
   return _react["default"].createElement("div", {
     className: internalClassName
-  }, locale.prefixPeriod !== '' && _react["default"].createElement("span", null, locale.prefixPeriod || _locale.DEFAULT_LOCALE_EN.prefixPeriod), _react["default"].createElement(_material.Select, _extends({
+  }, locale.prefixPeriod !== '' && _react["default"].createElement("span", null, locale.prefixPeriod || _locale.DEFAULT_LOCALE_EN.prefixPeriod), _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_material.Select, _extends({
     key: JSON.stringify(locale),
     defaultValue: value,
     value: value,
@@ -91,5 +91,5 @@ function Period(props) {
       key: obj.value,
       value: obj.value
     }, obj.label);
-  })));
+  }))));
 }

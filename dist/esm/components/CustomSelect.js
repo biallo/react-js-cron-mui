@@ -5,6 +5,7 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 import React, { useMemo, useCallback } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
 import { DEFAULT_LOCALE_EN } from '../locale';
 import { classNames, sort } from '../utils';
 import { parsePartArray, partToString, formatValue } from '../converter';
@@ -77,7 +78,7 @@ export default function CustomSelect(props) {
     'react-js-cron-custom-select': true,
     [`${className}-select`]: !!className
   }), [className]);
-  return React.createElement(Select, _extends({
+  return React.createElement(FormControl, null, React.createElement(Select, _extends({
     multiple: true,
     open: readOnly ? false : undefined,
     value: stringValue,
@@ -89,5 +90,5 @@ export default function CustomSelect(props) {
   }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
-  }, obj.label)));
+  }, obj.label))));
 }
