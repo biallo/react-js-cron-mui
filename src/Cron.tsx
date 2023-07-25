@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
-import { Button } from '@mui/material'
+import { Button, FormControl } from '@mui/material'
 import { CronProps, PeriodType } from './types'
 import Period from './fields/Period'
 import MonthDays from './fields/MonthDays'
@@ -263,61 +263,30 @@ export default function Cron(props: CronProps) {
 
   const periodForRender = period || defaultPeriodRef.current
   return (
-    <div className={internalClassName}>
-      <Period
-        value={periodForRender}
-        setValue={setPeriod}
-        locale={locale}
-        className={className}
-        disabled={disabled}
-        readOnly={readOnly}
-        shortcuts={shortcuts}
-        {...selectProps}
-      />
+    <FormControl>
+      <div className={internalClassName}>
+        <Period
+          value={periodForRender}
+          setValue={setPeriod}
+          locale={locale}
+          className={className}
+          disabled={disabled}
+          readOnly={readOnly}
+          shortcuts={shortcuts}
+          {...selectProps}
+        />
 
-      {periodForRender === 'reboot' ? (
-        clearButtonNode
-      ) : (
-        <>
-          {periodForRender === 'year' && (
-            <Months
-              value={months}
-              setValue={setMonths}
-              locale={locale}
-              className={className}
-              humanizeLabels={humanizeLabels}
-              disabled={disabled}
-              readOnly={readOnly}
-              period={periodForRender}
-              {...selectProps}
-            />
-          )}
-
-          {(periodForRender === 'year' || periodForRender === 'month') && (
-            <MonthDays
-              value={monthDays}
-              setValue={setMonthDays}
-              locale={locale}
-              className={className}
-              weekDays={weekDays}
-              disabled={disabled}
-              readOnly={readOnly}
-              leadingZero={leadingZero}
-              period={periodForRender}
-              {...selectProps}
-            />
-          )}
-
-          {(periodForRender === 'year' ||
-            periodForRender === 'month' ||
-            periodForRender === 'week') && (
-              <WeekDays
-                value={weekDays}
-                setValue={setWeekDays}
+        {periodForRender === 'reboot' ? (
+          clearButtonNode
+        ) : (
+          <>
+            {periodForRender === 'year' && (
+              <Months
+                value={months}
+                setValue={setMonths}
                 locale={locale}
                 className={className}
                 humanizeLabels={humanizeLabels}
-                monthDays={monthDays}
                 disabled={disabled}
                 readOnly={readOnly}
                 period={periodForRender}
@@ -325,41 +294,74 @@ export default function Cron(props: CronProps) {
               />
             )}
 
-          <div>
-            {periodForRender !== 'minute' && periodForRender !== 'hour' && (
-              <Hours
-                value={hours}
-                setValue={setHours}
+            {(periodForRender === 'year' || periodForRender === 'month') && (
+              <MonthDays
+                value={monthDays}
+                setValue={setMonthDays}
                 locale={locale}
                 className={className}
+                weekDays={weekDays}
                 disabled={disabled}
                 readOnly={readOnly}
                 leadingZero={leadingZero}
-                clockFormat={clockFormat}
                 period={periodForRender}
                 {...selectProps}
               />
             )}
 
-            {periodForRender !== 'minute' && (
-              <Minutes
-                value={minutes}
-                setValue={setMinutes}
-                locale={locale}
-                period={periodForRender}
-                className={className}
-                disabled={disabled}
-                readOnly={readOnly}
-                leadingZero={leadingZero}
-                clockFormat={clockFormat}
-                {...selectProps}
-              />
-            )}
+            {(periodForRender === 'year' ||
+              periodForRender === 'month' ||
+              periodForRender === 'week') && (
+                <WeekDays
+                  value={weekDays}
+                  setValue={setWeekDays}
+                  locale={locale}
+                  className={className}
+                  humanizeLabels={humanizeLabels}
+                  monthDays={monthDays}
+                  disabled={disabled}
+                  readOnly={readOnly}
+                  period={periodForRender}
+                  {...selectProps}
+                />
+              )}
 
-            {clearButtonNode}
-          </div>
-        </>
-      )}
-    </div>
+            <div>
+              {periodForRender !== 'minute' && periodForRender !== 'hour' && (
+                <Hours
+                  value={hours}
+                  setValue={setHours}
+                  locale={locale}
+                  className={className}
+                  disabled={disabled}
+                  readOnly={readOnly}
+                  leadingZero={leadingZero}
+                  clockFormat={clockFormat}
+                  period={periodForRender}
+                  {...selectProps}
+                />
+              )}
+
+              {periodForRender !== 'minute' && (
+                <Minutes
+                  value={minutes}
+                  setValue={setMinutes}
+                  locale={locale}
+                  period={periodForRender}
+                  className={className}
+                  disabled={disabled}
+                  readOnly={readOnly}
+                  leadingZero={leadingZero}
+                  clockFormat={clockFormat}
+                  {...selectProps}
+                />
+              )}
+
+              {clearButtonNode}
+            </div>
+          </>
+        )}
+      </div>
+    </FormControl>
   )
 }
