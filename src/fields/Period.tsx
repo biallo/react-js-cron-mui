@@ -94,6 +94,8 @@ export default function Period(props: PeriodProps) {
   //   [className]
   // )
 
+  console.log(selectProps)
+
   return (
     <div className={internalClassName}>
       <FormControl>
@@ -106,7 +108,8 @@ export default function Period(props: PeriodProps) {
           disabled={disabled}
           open={readOnly ? false : undefined}
           {...selectProps}
-          label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
+          // label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
+          label="TOTO"
         >
           {options.map((obj) => (
             <MenuItem key={obj.value} value={obj.value}>

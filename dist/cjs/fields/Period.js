@@ -76,6 +76,7 @@ function Period(props) {
       'react-js-cron-select-no-prefix': locale.prefixPeriod === ''
     }, "".concat(className, "-select"), !!className));
   }, [className, locale.prefixPeriod]);
+  console.log(selectProps);
   return _react["default"].createElement("div", {
     className: internalClassName
   }, _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_material.Select, _extends({
@@ -87,7 +88,7 @@ function Period(props) {
     disabled: disabled,
     open: readOnly ? false : undefined
   }, selectProps, {
-    label: locale.prefixPeriod !== '' ? locale.prefixPeriod : _locale.DEFAULT_LOCALE_EN.prefixPeriod
+    label: "TOTO"
   }), options.map(function (obj) {
     return _react["default"].createElement(_material.MenuItem, {
       key: obj.value,

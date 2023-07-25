@@ -58,6 +58,7 @@ export default function Period(props) {
     'react-js-cron-select-no-prefix': locale.prefixPeriod === '',
     [`${className}-select`]: !!className
   }), [className, locale.prefixPeriod]);
+  console.log(selectProps);
   return React.createElement("div", {
     className: internalClassName
   }, React.createElement(FormControl, null, React.createElement(Select, _extends({
@@ -69,7 +70,7 @@ export default function Period(props) {
     disabled: disabled,
     open: readOnly ? false : undefined
   }, selectProps, {
-    label: locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod
+    label: "TOTO"
   }), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
