@@ -183,9 +183,9 @@ function Cron(props) {
     return null;
   }, [clearButton, readOnly, localeJSON, clearButtonClassName, disabled, otherClearButtonPropsJSON, handleClear]);
   var periodForRender = period || defaultPeriodRef.current;
-  return _react["default"].createElement("div", {
+  return _react["default"].createElement(_material.FormGroup, null, _react["default"].createElement("div", {
     className: internalClassName
-  }, _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_Period["default"], _extends({
+  }, _react["default"].createElement(_Period["default"], _extends({
     value: periodForRender,
     setValue: setPeriod,
     locale: locale,
@@ -193,7 +193,7 @@ function Cron(props) {
     disabled: disabled,
     readOnly: readOnly,
     shortcuts: shortcuts
-  }, selectProps))), periodForRender === 'reboot' ? clearButtonNode : _react["default"].createElement(_react["default"].Fragment, null, periodForRender === 'year' && _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_Months["default"], _extends({
+  }, selectProps)), periodForRender === 'reboot' ? clearButtonNode : _react["default"].createElement(_react["default"].Fragment, null, periodForRender === 'year' && _react["default"].createElement(_Months["default"], _extends({
     value: months,
     setValue: setMonths,
     locale: locale,
@@ -202,7 +202,7 @@ function Cron(props) {
     disabled: disabled,
     readOnly: readOnly,
     period: periodForRender
-  }, selectProps))), (periodForRender === 'year' || periodForRender === 'month') && _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_MonthDays["default"], _extends({
+  }, selectProps)), (periodForRender === 'year' || periodForRender === 'month') && _react["default"].createElement(_MonthDays["default"], _extends({
     value: monthDays,
     setValue: setMonthDays,
     locale: locale,
@@ -212,7 +212,7 @@ function Cron(props) {
     readOnly: readOnly,
     leadingZero: leadingZero,
     period: periodForRender
-  }, selectProps))), (periodForRender === 'year' || periodForRender === 'month' || periodForRender === 'week') && _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_WeekDays["default"], _extends({
+  }, selectProps)), (periodForRender === 'year' || periodForRender === 'month' || periodForRender === 'week') && _react["default"].createElement(_WeekDays["default"], _extends({
     value: weekDays,
     setValue: setWeekDays,
     locale: locale,
@@ -222,7 +222,7 @@ function Cron(props) {
     disabled: disabled,
     readOnly: readOnly,
     period: periodForRender
-  }, selectProps))), _react["default"].createElement("div", null, periodForRender !== 'minute' && periodForRender !== 'hour' && _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_Hours["default"], _extends({
+  }, selectProps)), _react["default"].createElement("div", null, periodForRender !== 'minute' && periodForRender !== 'hour' && _react["default"].createElement(_Hours["default"], _extends({
     value: hours,
     setValue: setHours,
     locale: locale,
@@ -232,7 +232,7 @@ function Cron(props) {
     leadingZero: leadingZero,
     clockFormat: clockFormat,
     period: periodForRender
-  }, selectProps))), periodForRender !== 'minute' && _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_Minutes["default"], _extends({
+  }, selectProps)), periodForRender !== 'minute' && _react["default"].createElement(_Minutes["default"], _extends({
     value: minutes,
     setValue: setMinutes,
     locale: locale,
@@ -242,5 +242,5 @@ function Cron(props) {
     readOnly: readOnly,
     leadingZero: leadingZero,
     clockFormat: clockFormat
-  }, selectProps))), clearButtonNode)));
+  }, selectProps)), clearButtonNode))));
 }

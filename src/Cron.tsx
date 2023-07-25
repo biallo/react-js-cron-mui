@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
-import { Button, FormControl } from '@mui/material'
+import { Button, FormGroup } from '@mui/material'
 import { CronProps, PeriodType } from './types'
 import Period from './fields/Period'
 import MonthDays from './fields/MonthDays'
@@ -263,109 +263,98 @@ export default function Cron(props: CronProps) {
 
   const periodForRender = period || defaultPeriodRef.current
   return (
+    <FormGroup>
     <div className={internalClassName}>
-      <FormControl>
-        <Period
-          value={periodForRender}
-          setValue={setPeriod}
-          locale={locale}
-          className={className}
-          disabled={disabled}
-          readOnly={readOnly}
-          shortcuts={shortcuts}
-          {...selectProps}
-        />
-      </FormControl>
+      <Period
+        value={periodForRender}
+        setValue={setPeriod}
+        locale={locale}
+        className={className}
+        disabled={disabled}
+        readOnly={readOnly}
+        shortcuts={shortcuts}
+        {...selectProps}
+      />
 
       {periodForRender === 'reboot' ? (
         clearButtonNode
       ) : (
         <>
           {periodForRender === 'year' && (
-            <FormControl>
-              <Months
-                value={months}
-                setValue={setMonths}
-                locale={locale}
-                className={className}
-                humanizeLabels={humanizeLabels}
-                disabled={disabled}
-                readOnly={readOnly}
-                period={periodForRender}
-                {...selectProps}
-              />
-            </FormControl>
+            <Months
+              value={months}
+              setValue={setMonths}
+              locale={locale}
+              className={className}
+              humanizeLabels={humanizeLabels}
+              disabled={disabled}
+              readOnly={readOnly}
+              period={periodForRender}
+              {...selectProps}
+            />
           )}
 
           {(periodForRender === 'year' || periodForRender === 'month') && (
-            <FormControl>
-              <MonthDays
-                value={monthDays}
-                setValue={setMonthDays}
-                locale={locale}
-                className={className}
-                weekDays={weekDays}
-                disabled={disabled}
-                readOnly={readOnly}
-                leadingZero={leadingZero}
-                period={periodForRender}
-                {...selectProps}
-              />
-            </FormControl>
+            <MonthDays
+              value={monthDays}
+              setValue={setMonthDays}
+              locale={locale}
+              className={className}
+              weekDays={weekDays}
+              disabled={disabled}
+              readOnly={readOnly}
+              leadingZero={leadingZero}
+              period={periodForRender}
+              {...selectProps}
+            />
           )}
 
           {(periodForRender === 'year' ||
             periodForRender === 'month' ||
             periodForRender === 'week') && (
-              <FormControl>
-                <WeekDays
-                  value={weekDays}
-                  setValue={setWeekDays}
-                  locale={locale}
-                  className={className}
-                  humanizeLabels={humanizeLabels}
-                  monthDays={monthDays}
-                  disabled={disabled}
-                  readOnly={readOnly}
-                  period={periodForRender}
-                  {...selectProps}
-                />
-              </FormControl>
+              <WeekDays
+                value={weekDays}
+                setValue={setWeekDays}
+                locale={locale}
+                className={className}
+                humanizeLabels={humanizeLabels}
+                monthDays={monthDays}
+                disabled={disabled}
+                readOnly={readOnly}
+                period={periodForRender}
+                {...selectProps}
+              />
             )}
 
           <div>
             {periodForRender !== 'minute' && periodForRender !== 'hour' && (
-              <FormControl>
-                <Hours
-                  value={hours}
-                  setValue={setHours}
-                  locale={locale}
-                  className={className}
-                  disabled={disabled}
-                  readOnly={readOnly}
-                  leadingZero={leadingZero}
-                  clockFormat={clockFormat}
-                  period={periodForRender}
-                  {...selectProps}
-                />
-              </FormControl>
+              <Hours
+                value={hours}
+                setValue={setHours}
+                locale={locale}
+                className={className}
+                disabled={disabled}
+                readOnly={readOnly}
+                leadingZero={leadingZero}
+                clockFormat={clockFormat}
+                period={periodForRender}
+                {...selectProps}
+              />
             )}
 
             {periodForRender !== 'minute' && (
-              <FormControl>
-                <Minutes
-                  value={minutes}
-                  setValue={setMinutes}
-                  locale={locale}
-                  period={periodForRender}
-                  className={className}
-                  disabled={disabled}
-                  readOnly={readOnly}
-                  leadingZero={leadingZero}
-                  clockFormat={clockFormat}
-                  {...selectProps}
-                />
-              </FormControl>
+              <Minutes
+                value={minutes}
+                setValue={setMinutes}
+                locale={locale}
+                period={periodForRender}
+                className={className}
+                disabled={disabled}
+                readOnly={readOnly}
+                leadingZero={leadingZero}
+                clockFormat={clockFormat}
+                {...selectProps}
+              />
             )}
 
             {clearButtonNode}
@@ -373,5 +362,6 @@ export default function Cron(props: CronProps) {
         </>
       )}
     </div>
+    </FormGroup>
   )
 }
