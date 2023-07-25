@@ -264,7 +264,6 @@ export interface CustomSelectProps
     | 'onSelect'
     | 'onDeselect'
   > {
-  grid?: boolean
   setValue: SetValueNumbersOrUndefined
   optionsList?: string[]
   locale: Locale

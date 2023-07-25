@@ -45,7 +45,6 @@ function Months(props) {
   }, locale.prefixMonths !== '' && _react["default"].createElement("span", null, locale.prefixMonths || _locale.DEFAULT_LOCALE_EN.prefixMonths), _react["default"].createElement(_CustomSelect["default"], _extends({
     placeholder: locale.emptyMonths || _locale.DEFAULT_LOCALE_EN.emptyMonths,
     optionsList: optionsList,
-    grid: false,
     value: value,
     unit: _objectSpread(_objectSpread({}, _constants.UNITS[3]), {}, {
       alt: locale.altMonths || _locale.DEFAULT_LOCALE_EN.altMonths

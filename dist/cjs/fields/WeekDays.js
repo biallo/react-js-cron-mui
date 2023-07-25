@@ -57,7 +57,6 @@ function WeekDays(props) {
   }, locale.prefixWeekDays !== '' && (period === 'week' || !monthDaysIsDisplayed) && _react["default"].createElement("span", null, locale.prefixWeekDays || _locale.DEFAULT_LOCALE_EN.prefixWeekDays), locale.prefixWeekDaysForMonthAndYearPeriod !== '' && period !== 'week' && monthDaysIsDisplayed && _react["default"].createElement("span", null, locale.prefixWeekDaysForMonthAndYearPeriod || _locale.DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod), _react["default"].createElement(_CustomSelect["default"], _extends({
     placeholder: placeholder,
     optionsList: optionsList,
-    grid: false,
     value: value,
     unit: _objectSpread(_objectSpread({}, _constants.UNITS[4]), {}, {
       alt: locale.altWeekDays || _locale.DEFAULT_LOCALE_EN.altWeekDays
