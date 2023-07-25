@@ -1,5 +1,5 @@
 import React, { useCallback, useMemo } from 'react'
-import { Select, MenuItem } from '@mui/material'
+import { Select, MenuItem, FormControl } from '@mui/material'
 
 import { PeriodProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
@@ -54,7 +54,7 @@ export default function Period(props: PeriodProps) {
   }
 
   const handleChange = useCallback(
-    (event:any) => {
+    (event: any) => {
       if (!readOnly) {
         setValue(event.target.value)
       }
@@ -99,23 +99,24 @@ export default function Period(props: PeriodProps) {
       {locale.prefixPeriod !== '' && (
         <span>{locale.prefixPeriod || DEFAULT_LOCALE_EN.prefixPeriod}</span>
       )}
-
-      <Select
-        key={JSON.stringify(locale)}
-        defaultValue={value}
-        value={value}
-        onChange={handleChange}
-        className={selectClassName}
-        disabled={disabled}
-        open={readOnly ? false : undefined}
-        {...selectProps}
-      >
-        {options.map((obj) => (
-          <MenuItem key={obj.value} value={obj.value}>
-            {obj.label}
-          </MenuItem>
-        ))}
-      </Select>
+      <FormControl>
+        <Select
+          key={JSON.stringify(locale)}
+          defaultValue={value}
+          value={value}
+          onChange={handleChange}
+          className={selectClassName}
+          disabled={disabled}
+          open={readOnly ? false : undefined}
+          {...selectProps}
+        >
+          {options.map((obj) => (
+            <MenuItem key={obj.value} value={obj.value}>
+              {obj.label}
+            </MenuItem>
+          ))}
+        </Select>
+      </FormControl>
     </div>
   )
 }

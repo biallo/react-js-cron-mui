@@ -1,6 +1,7 @@
 import React, { useMemo, useCallback } from 'react'
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
+import FormControl from '@mui/material/FormControl';
 
 import { CustomSelectProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
@@ -125,22 +126,24 @@ export default function CustomSelect(props: CustomSelectProps) {
   )
 
   return (
-    <Select
-      multiple={true}
-      open={readOnly ? false : undefined}
-      value={stringValue}
-      onChange={simpleClick}
-      renderValue={renderTag}
-      className={internalClassName}
-      autoWidth={false}
-      disabled={disabled}
-      {...selectProps}
-    >
-      {options.map((obj) => (
-        <MenuItem key={obj.value} value={obj.value}>
-          {obj.label}
-        </MenuItem>
-      ))}
-    </Select>
+    <FormControl>
+      <Select
+        multiple={true}
+        open={readOnly ? false : undefined}
+        value={stringValue}
+        onChange={simpleClick}
+        renderValue={renderTag}
+        className={internalClassName}
+        autoWidth={false}
+        disabled={disabled}
+        {...selectProps}
+      >
+        {options.map((obj) => (
+          <MenuItem key={obj.value} value={obj.value}>
+            {obj.label}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   )
 }

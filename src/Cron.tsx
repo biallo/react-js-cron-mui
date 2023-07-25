@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react'
-import { Button, FormGroup } from '@mui/material'
+import { Button } from '@mui/material'
 import { CronProps, PeriodType } from './types'
 import Period from './fields/Period'
 import MonthDays from './fields/MonthDays'
@@ -263,7 +263,6 @@ export default function Cron(props: CronProps) {
 
   const periodForRender = period || defaultPeriodRef.current
   return (
-    <FormGroup>
     <div className={internalClassName}>
       <Period
         value={periodForRender}
@@ -362,6 +361,5 @@ export default function Cron(props: CronProps) {
         </>
       )}
     </div>
-    </FormGroup>
   )
 }
