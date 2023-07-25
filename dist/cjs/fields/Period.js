@@ -77,7 +77,6 @@ function Period(props) {
       'react-js-cron-select-no-prefix': locale.prefixPeriod === ''
     }, "".concat(className, "-select"), !!className));
   }, [className, locale.prefixPeriod]);
-  console.log(selectProps);
   return _react["default"].createElement("div", {
     className: internalClassName
   }, _react["default"].createElement(_material.FormControl, null, _react["default"].createElement(_material.InputLabel, {

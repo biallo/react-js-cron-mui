@@ -17,6 +17,7 @@ export default function Hours(props: HoursProps) {
     leadingZero,
     clockFormat,
     period,
+    source,
     ...selectProps
   } = props
   const internalClassName = useMemo(
@@ -45,6 +46,7 @@ export default function Hours(props: HoursProps) {
         clockFormat={clockFormat}
         period={period}
         label={locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours}
+        source={source}
         {...selectProps}
       />
     </div>

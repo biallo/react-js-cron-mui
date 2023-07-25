@@ -95,8 +95,6 @@ export default function Period(props: PeriodProps) {
   //   [className]
   // )
 
-  console.log(selectProps)
-
   return (
     <div className={internalClassName}>
       <FormControl>

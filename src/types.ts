@@ -235,18 +235,22 @@ export interface PeriodProps
 }
 export interface MonthsProps extends FieldProps {
   humanizeLabels: boolean
+  source?: string
 }
 export interface MonthDaysProps extends FieldProps {
   weekDays?: number[]
   leadingZero: LeadingZero
+  source?: string
 }
 export interface WeekDaysProps extends FieldProps {
   humanizeLabels: boolean
   monthDays?: number[]
+  source?: string
 }
 export interface HoursProps extends FieldProps {
   leadingZero: LeadingZero
   clockFormat?: ClockFormat
+  source?: string
 }
 export interface MinutesProps extends FieldProps {
   leadingZero: LeadingZero

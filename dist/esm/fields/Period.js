@@ -59,7 +59,6 @@ export default function Period(props) {
     'react-js-cron-select-no-prefix': locale.prefixPeriod === '',
     [`${className}-select`]: !!className
   }), [className, locale.prefixPeriod]);
-  console.log(selectProps);
   return React.createElement("div", {
     className: internalClassName
   }, React.createElement(FormControl, null, React.createElement(InputLabel, {

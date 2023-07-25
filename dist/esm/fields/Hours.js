@@ -1,4 +1,4 @@
-const _excluded = ["value", "setValue", "locale", "className", "disabled", "readOnly", "leadingZero", "clockFormat", "period"];
+const _excluded = ["value", "setValue", "locale", "className", "disabled", "readOnly", "leadingZero", "clockFormat", "period", "source"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
@@ -17,7 +17,8 @@ export default function Hours(props) {
       readOnly,
       leadingZero,
       clockFormat,
-      period
+      period,
+      source
     } = props,
     selectProps = _objectWithoutProperties(props, _excluded);
   const internalClassName = useMemo(() => classNames({
@@ -40,6 +41,7 @@ export default function Hours(props) {
     leadingZero: leadingZero,
     clockFormat: clockFormat,
     period: period,
-    label: locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours
+    label: locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours,
+    source: source
   }, selectProps)));
 }
