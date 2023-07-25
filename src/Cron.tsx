@@ -276,7 +276,7 @@ export default function Cron(props: CronProps) {
           {...selectProps}
         />
 
-        {periodForRender === 'reboot' ? (
+        {/* {periodForRender === 'reboot' ? (
           clearButtonNode
         ) : (
           <>
@@ -360,7 +360,7 @@ export default function Cron(props: CronProps) {
               {clearButtonNode}
             </div>
           </>
-        )}
+        )} */}
       </div>
     </FormControl>
   )
