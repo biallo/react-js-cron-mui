@@ -128,6 +128,12 @@ export interface CronProps {
    * Default './locale.ts'
    */
   locale?: Locale
+
+  /**
+   * Use for generate id for label when multiple instance of react-js-cron-mui
+   */
+  source?: string
+
 }
 export interface Locale {
   everyText?: string
@@ -225,6 +231,7 @@ export interface PeriodProps
   value: PeriodType
   setValue: SetValuePeriod
   shortcuts: Shortcuts
+  source?: string
 }
 export interface MonthsProps extends FieldProps {
   humanizeLabels: boolean
@@ -275,6 +282,7 @@ export interface CustomSelectProps
   clockFormat?: ClockFormat
   period: PeriodType
   unit: Unit
+  source: string
 }
 export type SetValueNumbersOrUndefined = Dispatch<
   SetStateAction<number[] | undefined>
@@ -313,6 +321,7 @@ export interface DefaultLocale {
   months: string[]
   altWeekDays: string[]
   altMonths: string[]
+  source?: string
 }
 export type CronValues = { [key in CronType]: number[] | string | undefined }
 export interface Classes {
