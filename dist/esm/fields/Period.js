@@ -67,9 +67,10 @@ export default function Period(props) {
     onChange: handleChange,
     className: selectClassName,
     disabled: disabled,
-    open: readOnly ? false : undefined,
+    open: readOnly ? false : undefined
+  }, selectProps, {
     label: React.createElement("span", null, locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod)
-  }, selectProps), options.map(obj => React.createElement(MenuItem, {
+  }), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
   }, obj.label)))));

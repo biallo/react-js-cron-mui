@@ -42,7 +42,6 @@ function Minutes(props) {
     className: internalClassName
   }, _react["default"].createElement(_CustomSelect["default"], _extends({
     placeholder: period === 'hour' ? locale.emptyMinutesForHourPeriod || _locale.DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod : locale.emptyMinutes || _locale.DEFAULT_LOCALE_EN.emptyMinutes,
-    label: period === 'hour' ? locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : _locale.DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod : locale.prefixMinutes !== '' ? locale.prefixMinutes : _locale.DEFAULT_LOCALE_EN.prefixMinutes,
     value: value,
     unit: _constants.UNITS[0],
     setValue: setValue,
@@ -53,5 +52,7 @@ function Minutes(props) {
     leadingZero: leadingZero,
     clockFormat: clockFormat,
     period: period
-  }, selectProps)), period === 'hour' && locale.suffixMinutesForHourPeriod !== '' && _react["default"].createElement("span", null, locale.suffixMinutesForHourPeriod || _locale.DEFAULT_LOCALE_EN.suffixMinutesForHourPeriod));
+  }, selectProps, {
+    label: "TOTO"
+  })), period === 'hour' && locale.suffixMinutesForHourPeriod !== '' && _react["default"].createElement("span", null, locale.suffixMinutesForHourPeriod || _locale.DEFAULT_LOCALE_EN.suffixMinutesForHourPeriod));
 }

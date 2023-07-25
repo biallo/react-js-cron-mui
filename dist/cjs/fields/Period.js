@@ -85,9 +85,10 @@ function Period(props) {
     onChange: handleChange,
     className: selectClassName,
     disabled: disabled,
-    open: readOnly ? false : undefined,
+    open: readOnly ? false : undefined
+  }, selectProps, {
     label: _react["default"].createElement("span", null, locale.prefixPeriod !== '' ? locale.prefixPeriod : _locale.DEFAULT_LOCALE_EN.prefixPeriod)
-  }, selectProps), options.map(function (obj) {
+  }), options.map(function (obj) {
     return _react["default"].createElement(_material.MenuItem, {
       key: obj.value,
       value: obj.value
