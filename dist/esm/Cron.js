@@ -6,11 +6,6 @@ function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) r
 import React, { useState, useCallback, useEffect, useRef, useMemo } from 'react';
 import { Button, FormControl } from '@mui/material';
 import Period from './fields/Period';
-import MonthDays from './fields/MonthDays';
-import Months from './fields/Months';
-import Hours from './fields/Hours';
-import Minutes from './fields/Minutes';
-import WeekDays from './fields/WeekDays';
 import { classNames, setError, usePrevious } from './utils';
 import { DEFAULT_LOCALE_EN } from './locale';
 import { setValuesFromCronString, getCronStringFromValues } from './converter';
@@ -140,54 +135,5 @@ export default function Cron(props) {
     disabled: disabled,
     readOnly: readOnly,
     shortcuts: shortcuts
-  }, selectProps)), periodForRender === 'reboot' ? clearButtonNode : React.createElement(React.Fragment, null, periodForRender === 'year' && React.createElement(Months, _extends({
-    value: months,
-    setValue: setMonths,
-    locale: locale,
-    className: className,
-    humanizeLabels: humanizeLabels,
-    disabled: disabled,
-    readOnly: readOnly,
-    period: periodForRender
-  }, selectProps)), (periodForRender === 'year' || periodForRender === 'month') && React.createElement(MonthDays, _extends({
-    value: monthDays,
-    setValue: setMonthDays,
-    locale: locale,
-    className: className,
-    weekDays: weekDays,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    period: periodForRender
-  }, selectProps)), (periodForRender === 'year' || periodForRender === 'month' || periodForRender === 'week') && React.createElement(WeekDays, _extends({
-    value: weekDays,
-    setValue: setWeekDays,
-    locale: locale,
-    className: className,
-    humanizeLabels: humanizeLabels,
-    monthDays: monthDays,
-    disabled: disabled,
-    readOnly: readOnly,
-    period: periodForRender
-  }, selectProps)), React.createElement("div", null, periodForRender !== 'minute' && periodForRender !== 'hour' && React.createElement(Hours, _extends({
-    value: hours,
-    setValue: setHours,
-    locale: locale,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    clockFormat: clockFormat,
-    period: periodForRender
-  }, selectProps)), periodForRender !== 'minute' && React.createElement(Minutes, _extends({
-    value: minutes,
-    setValue: setMinutes,
-    locale: locale,
-    period: periodForRender,
-    className: className,
-    disabled: disabled,
-    readOnly: readOnly,
-    leadingZero: leadingZero,
-    clockFormat: clockFormat
-  }, selectProps)), clearButtonNode))));
+  }, selectProps))));
 }
