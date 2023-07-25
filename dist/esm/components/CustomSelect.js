@@ -81,7 +81,9 @@ export default function CustomSelect(props) {
     'react-js-cron-custom-select': true,
     [`${className}-select`]: !!className
   }), [className]);
-  return React.createElement(FormControl, null, React.createElement(InputLabel, {
+  return React.createElement(FormControl, {
+    variant: "filled"
+  }, React.createElement(InputLabel, {
     id: `react-js-cron-mui-${unit.type}-${source}`
   }, label), React.createElement(Select, _extends({
     multiple: true,

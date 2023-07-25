@@ -129,7 +129,7 @@ export default function CustomSelect(props: CustomSelectProps) {
   )
 
   return (
-    <FormControl>
+    <FormControl variant="filled">
       <InputLabel id={`react-js-cron-mui-${unit.type}-${source}`}>{label}</InputLabel>
       <Select
         multiple={true}
