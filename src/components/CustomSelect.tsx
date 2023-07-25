@@ -2,6 +2,7 @@ import React, { useMemo, useCallback } from 'react'
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 
 import { CustomSelectProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
@@ -137,8 +138,8 @@ export default function CustomSelect(props: CustomSelectProps) {
         className={internalClassName}
         autoWidth={false}
         disabled={disabled}
-        label={label}
         {...selectProps}
+        label={<InputLabel>{label}</InputLabel>}
       >
         {options.map((obj) => (
           <MenuItem key={obj.value} value={obj.value}>

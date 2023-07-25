@@ -9,6 +9,7 @@ var _react = _interopRequireWildcard(require("react"));
 var _MenuItem = _interopRequireDefault(require("@mui/material/MenuItem"));
 var _Select = _interopRequireDefault(require("@mui/material/Select"));
 var _FormControl = _interopRequireDefault(require("@mui/material/FormControl"));
+var _InputLabel = _interopRequireDefault(require("@mui/material/InputLabel"));
 var _locale = require("../locale");
 var _utils = require("../utils");
 var _converter = require("../converter");
@@ -106,9 +107,10 @@ function CustomSelect(props) {
     renderValue: renderTag,
     className: internalClassName,
     autoWidth: false,
-    disabled: disabled,
-    label: label
-  }, selectProps), options.map(function (obj) {
+    disabled: disabled
+  }, selectProps, {
+    label: _react["default"].createElement(_InputLabel["default"], null, label)
+  }), options.map(function (obj) {
     return _react["default"].createElement(_MenuItem["default"], {
       key: obj.value,
       value: obj.value

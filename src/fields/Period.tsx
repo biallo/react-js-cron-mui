@@ -106,7 +106,7 @@ export default function Period(props: PeriodProps) {
           disabled={disabled}
           open={readOnly ? false : undefined}
           {...selectProps}
-          label={<span>{locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}</span>}
+          label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
         >
           {options.map((obj) => (
             <MenuItem key={obj.value} value={obj.value}>

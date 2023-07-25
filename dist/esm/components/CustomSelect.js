@@ -6,6 +6,7 @@ import React, { useMemo, useCallback } from 'react';
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
+import InputLabel from '@mui/material/InputLabel';
 import { DEFAULT_LOCALE_EN } from '../locale';
 import { classNames, sort } from '../utils';
 import { parsePartArray, partToString, formatValue } from '../converter';
@@ -87,9 +88,10 @@ export default function CustomSelect(props) {
     renderValue: renderTag,
     className: internalClassName,
     autoWidth: false,
-    disabled: disabled,
-    label: label
-  }, selectProps), options.map(obj => React.createElement(MenuItem, {
+    disabled: disabled
+  }, selectProps, {
+    label: React.createElement(InputLabel, null, label)
+  }), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value
   }, obj.label))));
