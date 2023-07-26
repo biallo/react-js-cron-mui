@@ -33,8 +33,8 @@ export default function Hours(props: HoursProps) {
 
   return (
     <div className={internalClassName}>
+      <span>{locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours}</span>
       <CustomSelect
-        placeholder={locale.emptyHours || DEFAULT_LOCALE_EN.emptyHours}
         value={value}
         unit={UNITS[1]}
         setValue={setValue}
@@ -45,7 +45,7 @@ export default function Hours(props: HoursProps) {
         leadingZero={leadingZero}
         clockFormat={clockFormat}
         period={period}
-        label={locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours}
+        label={locale.emptyHours}
         source={source}
         {...selectProps}
       />

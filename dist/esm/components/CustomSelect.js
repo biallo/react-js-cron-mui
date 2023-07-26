@@ -1,4 +1,4 @@
-const _excluded = ["value", "setValue", "locale", "className", "humanizeLabels", "disabled", "readOnly", "leadingZero", "clockFormat", "optionsList", "unit", "label", "source"];
+const _excluded = ["value", "setValue", "locale", "humanizeLabels", "disabled", "readOnly", "leadingZero", "clockFormat", "optionsList", "unit", "label", "source"];
 function _extends() { _extends = Object.assign ? Object.assign.bind() : function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
 function _objectWithoutProperties(source, excluded) { if (source == null) return {}; var target = _objectWithoutPropertiesLoose(source, excluded); var key, i; if (Object.getOwnPropertySymbols) { var sourceSymbolKeys = Object.getOwnPropertySymbols(source); for (i = 0; i < sourceSymbolKeys.length; i++) { key = sourceSymbolKeys[i]; if (excluded.indexOf(key) >= 0) continue; if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue; target[key] = source[key]; } } return target; }
 function _objectWithoutPropertiesLoose(source, excluded) { if (source == null) return {}; var target = {}; var sourceKeys = Object.keys(source); var key, i; for (i = 0; i < sourceKeys.length; i++) { key = sourceKeys[i]; if (excluded.indexOf(key) >= 0) continue; target[key] = source[key]; } return target; }
@@ -8,14 +8,13 @@ import Select from '@mui/material/Select';
 import FormControl from '@mui/material/FormControl';
 import InputLabel from '@mui/material/InputLabel';
 import { DEFAULT_LOCALE_EN } from '../locale';
-import { classNames, sort } from '../utils';
+import { sort } from '../utils';
 import { parsePartArray, partToString, formatValue } from '../converter';
 export default function CustomSelect(props) {
   const {
       value,
       setValue,
       locale,
-      className,
       humanizeLabels,
       disabled,
       readOnly,
@@ -76,11 +75,6 @@ export default function CustomSelect(props) {
       setValue(newValue);
     }
   }, [setValue, value]);
-  const internalClassName = useMemo(() => classNames({
-    'react-js-cron-select': true,
-    'react-js-cron-custom-select': true,
-    [`${className}-select`]: !!className
-  }), [className]);
   return React.createElement(FormControl, {
     variant: "filled",
     focused: true

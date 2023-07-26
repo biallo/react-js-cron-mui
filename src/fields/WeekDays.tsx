@@ -60,8 +60,11 @@ export default function WeekDays(props: WeekDaysProps) {
 
   return displayWeekDays ? (
     <div className={internalClassName}>
+      <span>
+        {period === 'week' || !monthDaysIsDisplayed ? locale.prefixWeekDays || DEFAULT_LOCALE_EN.prefixWeekDays :
+          period !== 'week' && monthDaysIsDisplayed && (locale.prefixWeekDaysForMonthAndYearPeriod || DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod)}
+      </span>
       <CustomSelect
-        placeholder={placeholder}
         optionsList={optionsList}
         value={value}
         unit={{
@@ -77,8 +80,7 @@ export default function WeekDays(props: WeekDaysProps) {
         disabled={disabled}
         readOnly={readOnly}
         period={period}
-        label={period === 'week' || !monthDaysIsDisplayed ? locale.prefixWeekDays || DEFAULT_LOCALE_EN.prefixWeekDays :
-          period !== 'week' && monthDaysIsDisplayed && (locale.prefixWeekDaysForMonthAndYearPeriod || DEFAULT_LOCALE_EN.prefixWeekDaysForMonthAndYearPeriod)}
+        label={placeholder}
         {...selectProps}
       />
     </div >

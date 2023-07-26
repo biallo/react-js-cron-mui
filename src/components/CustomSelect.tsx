@@ -6,7 +6,7 @@ import InputLabel from '@mui/material/InputLabel';
 
 import { CustomSelectProps } from '../types'
 import { DEFAULT_LOCALE_EN } from '../locale'
-import { classNames, sort } from '../utils'
+import { sort } from '../utils'
 import { parsePartArray, partToString, formatValue } from '../converter'
 
 export default function CustomSelect(props: CustomSelectProps) {
@@ -14,7 +14,7 @@ export default function CustomSelect(props: CustomSelectProps) {
     value,
     setValue,
     locale,
-    className,
+    // className,
     humanizeLabels,
     disabled,
     readOnly,
@@ -118,15 +118,15 @@ export default function CustomSelect(props: CustomSelectProps) {
     [setValue, value]
   )
 
-  const internalClassName = useMemo(
-    () =>
-      classNames({
-        'react-js-cron-select': true,
-        'react-js-cron-custom-select': true,
-        [`${className}-select`]: !!className,
-      }),
-    [className]
-  )
+  // const internalClassName = useMemo(
+  //   () =>
+  //     classNames({
+  //       'react-js-cron-select': true,
+  //       'react-js-cron-custom-select': true,
+  //       [`${className}-select`]: !!className,
+  //     }),
+  //   [className]
+  // )
 
   return (
     <FormControl variant="filled" focused={true}>

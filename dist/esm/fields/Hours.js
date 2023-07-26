@@ -29,8 +29,7 @@ export default function Hours(props) {
   }), [className]);
   return React.createElement("div", {
     className: internalClassName
-  }, React.createElement(CustomSelect, _extends({
-    placeholder: locale.emptyHours || DEFAULT_LOCALE_EN.emptyHours,
+  }, React.createElement("span", null, locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours), React.createElement(CustomSelect, _extends({
     value: value,
     unit: UNITS[1],
     setValue: setValue,
@@ -41,7 +40,7 @@ export default function Hours(props) {
     leadingZero: leadingZero,
     clockFormat: clockFormat,
     period: period,
-    label: locale.prefixHours || DEFAULT_LOCALE_EN.prefixHours,
+    label: locale.emptyHours,
     source: source
   }, selectProps)));
 }

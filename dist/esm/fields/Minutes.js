@@ -29,9 +29,8 @@ export default function Minutes(props) {
   }), [className]);
   return React.createElement("div", {
     className: internalClassName
-  }, React.createElement(CustomSelect, _extends({
-    placeholder: period === 'hour' ? locale.emptyMinutesForHourPeriod || DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes,
-    label: period === 'hour' ? locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod : locale.prefixMinutes !== '' ? locale.prefixMinutes : DEFAULT_LOCALE_EN.prefixMinutes,
+  }, React.createElement("span", null, period === 'hour' ? locale.prefixMinutesForHourPeriod || DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod : locale.prefixMinutes || DEFAULT_LOCALE_EN.prefixMinutes), React.createElement(CustomSelect, _extends({
+    label: period === 'hour' ? locale.emptyMinutesForHourPeriod || DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes,
     value: value,
     unit: UNITS[0],
     setValue: setValue,

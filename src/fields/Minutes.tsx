@@ -33,18 +33,15 @@ export default function Minutes(props: MinutesProps) {
 
   return (
     <div className={internalClassName}>
-
+      <span>{period === 'hour' ?
+        locale.prefixMinutesForHourPeriod || DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod :
+        locale.prefixMinutes || DEFAULT_LOCALE_EN.prefixMinutes}
+      </span>
 
       <CustomSelect
-        placeholder={
-          period === 'hour'
-            ? locale.emptyMinutesForHourPeriod ||
-            DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod
-            : locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes
-        }
         label={period === 'hour' ?
-          locale.prefixMinutesForHourPeriod !== '' ? locale.prefixMinutesForHourPeriod : DEFAULT_LOCALE_EN.prefixMinutesForHourPeriod :
-          locale.prefixMinutes !== '' ? locale.prefixMinutes : DEFAULT_LOCALE_EN.prefixMinutes}
+          locale.emptyMinutesForHourPeriod || DEFAULT_LOCALE_EN.emptyMinutesForHourPeriod :
+          locale.emptyMinutes || DEFAULT_LOCALE_EN.emptyMinutes}
         value={value}
         unit={UNITS[0]}
         setValue={setValue}

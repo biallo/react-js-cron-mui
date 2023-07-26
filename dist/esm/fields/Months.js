@@ -33,8 +33,7 @@ export default function Months(props) {
   }), [className]);
   return React.createElement("div", {
     className: internalClassName
-  }, React.createElement(CustomSelect, _extends({
-    placeholder: locale.emptyMonths || DEFAULT_LOCALE_EN.emptyMonths,
+  }, React.createElement("span", null, locale.prefixMonths || DEFAULT_LOCALE_EN.prefixMonths), React.createElement(CustomSelect, _extends({
     optionsList: optionsList,
     value: value,
     unit: _objectSpread(_objectSpread({}, UNITS[3]), {}, {
@@ -47,6 +46,6 @@ export default function Months(props) {
     disabled: disabled,
     readOnly: readOnly,
     period: period,
-    label: locale.prefixMonths !== '' ? locale.prefixMonths : DEFAULT_LOCALE_EN.prefixMonths
+    label: locale.emptyMonths || DEFAULT_LOCALE_EN.emptyMonths
   }, selectProps)));
 }

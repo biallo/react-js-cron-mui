@@ -53,8 +53,8 @@ export default function MonthDays(props: MonthDaysProps) {
 
   return displayMonthDays ? (
     <div className={internalClassName}>
+      <span>{locale.prefixMonthDays || DEFAULT_LOCALE_EN.prefixMonthDays}</span>
       <CustomSelect
-        placeholder={placeholder}
         value={value}
         setValue={setValue}
         unit={UNITS[2]}
@@ -64,7 +64,7 @@ export default function MonthDays(props: MonthDaysProps) {
         readOnly={readOnly}
         leadingZero={leadingZero}
         period={period}
-        label={locale.prefixMonthDays !== '' ? locale.prefixMonthDays : DEFAULT_LOCALE_EN.prefixMonthDays}
+        label={placeholder}
         {...selectProps}
       />
     </div>

@@ -38,8 +38,7 @@ export default function MonthDays(props) {
   const displayMonthDays = !readOnly || value && value.length > 0 || (!value || value.length === 0) && (!weekDays || weekDays.length === 0);
   return displayMonthDays ? React.createElement("div", {
     className: internalClassName
-  }, React.createElement(CustomSelect, _extends({
-    placeholder: placeholder,
+  }, React.createElement("span", null, locale.prefixMonthDays || DEFAULT_LOCALE_EN.prefixMonthDays), React.createElement(CustomSelect, _extends({
     value: value,
     setValue: setValue,
     unit: UNITS[2],
@@ -49,6 +48,6 @@ export default function MonthDays(props) {
     readOnly: readOnly,
     leadingZero: leadingZero,
     period: period,
-    label: locale.prefixMonthDays !== '' ? locale.prefixMonthDays : DEFAULT_LOCALE_EN.prefixMonthDays
+    label: placeholder
   }, selectProps))) : null;
 }
