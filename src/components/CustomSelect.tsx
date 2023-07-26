@@ -129,7 +129,7 @@ export default function CustomSelect(props: CustomSelectProps) {
   // )
 
   return (
-    <FormControl variant="filled" focused={true}>
+    <FormControl>
       <InputLabel id={`react-js-cron-mui-${unit.type}-${source}`}>{label}</InputLabel>
       <Select
         multiple={true}
@@ -141,7 +141,6 @@ export default function CustomSelect(props: CustomSelectProps) {
         disabled={disabled}
         labelId={`react-js-cron-mui-${unit.type}-${source}`}
         {...selectProps}
-        variant="filled"
       >
         {options.map((obj) => (
           <MenuItem key={obj.value} value={obj.value}>
