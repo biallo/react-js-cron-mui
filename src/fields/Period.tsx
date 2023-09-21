@@ -110,6 +110,7 @@ export default function Period(props: PeriodProps) {
           disabled={disabled}
           open={readOnly ? false : undefined}
           labelId={`react-js-cron-mui-period-${source}`}
+          label={locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod}
           {...selectProps}
         >
           {options.map((obj) => (

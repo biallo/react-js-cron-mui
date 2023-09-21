@@ -71,7 +71,8 @@ export default function Period(props) {
     className: selectClassName,
     disabled: disabled,
     open: readOnly ? false : undefined,
-    labelId: `react-js-cron-mui-period-${source}`
+    labelId: `react-js-cron-mui-period-${source}`,
+    label: locale.prefixPeriod !== '' ? locale.prefixPeriod : DEFAULT_LOCALE_EN.prefixPeriod
   }, selectProps), options.map(obj => React.createElement(MenuItem, {
     key: obj.value,
     value: obj.value

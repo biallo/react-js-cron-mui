@@ -89,7 +89,8 @@ function Period(props) {
     className: selectClassName,
     disabled: disabled,
     open: readOnly ? false : undefined,
-    labelId: "react-js-cron-mui-period-".concat(source)
+    labelId: "react-js-cron-mui-period-".concat(source),
+    label: locale.prefixPeriod !== '' ? locale.prefixPeriod : _locale.DEFAULT_LOCALE_EN.prefixPeriod
   }, selectProps), options.map(function (obj) {
     return _react["default"].createElement(_material.MenuItem, {
       key: obj.value,
