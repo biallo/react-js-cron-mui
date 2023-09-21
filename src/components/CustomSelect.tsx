@@ -140,6 +140,7 @@ export default function CustomSelect(props: CustomSelectProps) {
         autoWidth={false}
         disabled={disabled}
         labelId={`react-js-cron-mui-${unit.type}-${source}`}
+        label={label}
         {...selectProps}
       >
         {options.map((obj) => (
